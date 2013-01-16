@@ -1,0 +1,462 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     12426,        453]
+NotebookOptionsPosition[      8185,        311]
+NotebookOutlinePosition[      8817,        336]
+CellTagsIndexPosition[      8739,        331]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellID->686433507],
+
+Cell["ArduinoLink Package", "Categorization",
+ CellID->1572964060],
+
+Cell["ArduinoLink`", "Categorization",
+ CellID->1283261850],
+
+Cell["ArduinoLink/ref/ArduinoRun", "Categorization",
+ CellID->603646129],
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360],
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellID->793782254],
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellID->240026365],
+
+Cell[CellGroupData[{
+
+Cell["ArduinoRun", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ "ArduinoRun[function, {arg$1, arg$2,  $$}]\[LineSeparator]runs the specified \
+function on the ",
+ Cell[BoxData[
+  ButtonBox["Arduino",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ArduinoLink/ref/Arduino"]], "InlineFormula"],
+ " device with the given arguments."
+}], "Usage",
+ CellChangeTimes->{{3.56122235295496*^9, 3.561222368729995*^9}}],
+
+Cell["\<\
+ArduinoRun is used to evaluate functions provided by ArduinoLink connection \
+Modules.\
+\>", "Notes",
+ CellChangeTimes->{{3.561221030060192*^9, 3.561221052202866*^9}},
+ CellID->1067943069],
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938],
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860],
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239],
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell["XXXX", "SeeAlso",
+ CellID->929782353],
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell[TextData[{
+ "Use the MMA7361 accelerometer connect module and ",
+ Cell[BoxData[
+  ButtonBox["ArduinoRun",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ArduinoLink/ref/ArduinoRun"]], "InlineFormula"],
+ " to read accelerometer values:"
+}], "ExampleText",
+ CellChangeTimes->{{3.561221201126617*^9, 3.561221208666975*^9}, {
+  3.561221244683568*^9, 3.561221303064513*^9}},
+ CellID->1219830222],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<ArduinoLink`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.5612210561926394`*^9, 3.561221060948913*^9}},
+ CellID->1278375198],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"arduino", "=", 
+  RowBox[{"First", "[", 
+   RowBox[{"ArduinoList", "[", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.561221122949107*^9, 3.561221129294939*^9}},
+ CellID->796564813],
+
+Cell[BoxData[
+ RowBox[{"Arduino", "[", 
+  RowBox[{"\<\"/dev/tty.usbmodem411\"\>", ",", "\<\"atmega328p\"\>", ",", 
+   "115200", ",", "16", ",", "9600"}], "]"}]], "Output",
+ CellChangeTimes->{3.561221310183218*^9, 3.561221797590074*^9},
+ CellID->1635003787]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", 
+  RowBox[{"arduino", ",", " ", 
+   RowBox[{"\"\<Include\>\"", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<UltrasonicHCSR04\>\"", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<TriggerPin\>\"", "\[Rule]", "6"}], ",", " ", 
+          RowBox[{"\"\<EchoPin\>\"", "\[Rule]", "7"}]}], "}"}]}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<AcceleroMMA7361\>\"", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<Voltage\>\"", "\[Rule]", "3.3"}], ",", 
+          RowBox[{"\"\<Sensitivity\>\"", "\[Rule]", "0"}], ",", 
+          RowBox[{"\"\<SleepPin\>\"", "\[Rule]", "13"}], ",", 
+          RowBox[{"\"\<SelfTestPin\>\"", "\[Rule]", "12"}], ",", 
+          RowBox[{"\"\<ZeroGPin\>\"", "\[Rule]", "11"}], ",", 
+          RowBox[{"\"\<GSelectPin\>\"", "\[Rule]", "10"}], ",", 
+          RowBox[{"\"\<xPin\>\"", "\[Rule]", "0"}], ",", 
+          RowBox[{"\"\<yPin\>\"", "\[Rule]", "1"}], ",", 
+          RowBox[{"\"\<zPin\>\"", "\[Rule]", "2"}]}], "}"}]}], "}"}]}], 
+     "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5612211012121487`*^9, 3.561221136672894*^9}},
+ CellID->78064551],
+
+Cell[BoxData[
+ RowBox[{"ArduinoRun", "[", "\"\<AcceleroInitialize\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.561221114400412*^9, 3.56122117110188*^9}},
+ CellID->2065883987],
+
+Cell[BoxData[
+ RowBox[{"ArduinoRun", "[", "\"\<AcceleroCalibrate\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.561221186137534*^9, 3.561221186854821*^9}},
+ CellID->451756693],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ArduinoRun", "[", "\"\<AcceleroGetRawX\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.561222040734542*^9, 3.561222041998735*^9}},
+ CellID->1320047106],
+
+Cell[BoxData["517"], "Output",
+ CellChangeTimes->{{3.561221323224118*^9, 3.561221325740776*^9}, 
+   3.5612220425465603`*^9},
+ CellID->307901097]
+}, Open  ]],
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{Automatic, 867}, {Automatic, 240}},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 4, \
+2012)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[6699, 256, 100, 2, 55, "ExtendedExamplesSection",
+   CellTags->"ExtendedExamples",
+   CellID->1854448968]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 8601, 324}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 324, 14, 20, "History",
+ CellID->1247902091],
+Cell[884, 36, 68, 1, 20, "CategorizationSection",
+ CellID->1122911449],
+Cell[955, 39, 52, 1, 31, "Categorization",
+ CellID->686433507],
+Cell[1010, 42, 66, 1, 31, "Categorization",
+ CellID->1572964060],
+Cell[1079, 45, 59, 1, 31, "Categorization",
+ CellID->1283261850],
+Cell[1141, 48, 72, 1, 31, "Categorization",
+ CellID->603646129],
+Cell[1216, 51, 55, 1, 20, "KeywordsSection",
+ CellID->477174294],
+Cell[1274, 54, 45, 1, 20, "Keywords",
+ CellID->1164421360],
+Cell[1322, 57, 65, 1, 20, "TemplatesSection",
+ CellID->1872225408],
+Cell[1390, 60, 50, 1, 32, "Template",
+ CellID->1562036412],
+Cell[1443, 63, 49, 1, 32, "Template",
+ CellID->158391909],
+Cell[1495, 66, 50, 1, 32, "Template",
+ CellID->1360575930],
+Cell[1548, 69, 49, 1, 32, "Template",
+ CellID->793782254],
+Cell[1600, 72, 53, 1, 20, "DetailsSection",
+ CellID->307771771],
+Cell[1656, 75, 43, 1, 31, "Details",
+ CellID->670882175],
+Cell[1702, 78, 43, 1, 31, "Details",
+ CellID->350963985],
+Cell[1748, 81, 41, 1, 31, "Details",
+ CellID->8391405],
+Cell[1792, 84, 41, 1, 31, "Details",
+ CellID->3610269],
+Cell[1836, 87, 43, 1, 31, "Details",
+ CellID->401364205],
+Cell[1882, 90, 43, 1, 31, "Details",
+ CellID->350204745],
+Cell[1928, 93, 43, 1, 31, "Details",
+ CellID->732958810],
+Cell[1974, 96, 43, 1, 31, "Details",
+ CellID->222905350],
+Cell[2020, 99, 43, 1, 31, "Details",
+ CellID->240026365],
+Cell[CellGroupData[{
+Cell[2088, 104, 53, 1, 53, "ObjectName",
+ CellID->1224892054],
+Cell[2144, 107, 383, 10, 50, "Usage"],
+Cell[2530, 119, 198, 5, 32, "Notes",
+ CellID->1067943069],
+Cell[2731, 126, 57, 1, 20, "TutorialsSection",
+ CellID->250839057],
+Cell[2791, 129, 45, 1, 20, "Tutorials",
+ CellID->341631938],
+Cell[2839, 132, 83, 1, 20, "RelatedDemonstrationsSection",
+ CellID->1268215905],
+Cell[2925, 135, 58, 1, 20, "RelatedDemonstrations",
+ CellID->1129518860],
+Cell[2986, 138, 65, 1, 20, "RelatedLinksSection",
+ CellID->1584193535],
+Cell[3054, 141, 49, 1, 20, "RelatedLinks",
+ CellID->1038487239],
+Cell[3106, 144, 55, 1, 20, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[3164, 147, 43, 1, 20, "SeeAlso",
+ CellID->929782353],
+Cell[3210, 150, 57, 1, 20, "MoreAboutSection",
+ CellID->38303248],
+Cell[3270, 153, 46, 1, 20, "MoreAbout",
+ CellID->1665078683],
+Cell[3319, 156, 356, 11, 30, "PrimaryExamplesSection",
+ CellID->880084151],
+Cell[3678, 169, 393, 10, 23, "ExampleText",
+ CellID->1219830222],
+Cell[4074, 181, 166, 3, 28, "Input",
+ CellID->1278375198],
+Cell[CellGroupData[{
+Cell[4265, 188, 207, 5, 28, "Input",
+ CellID->796564813],
+Cell[4475, 195, 256, 5, 28, "Output",
+ CellID->1635003787]
+}, Open  ]],
+Cell[4746, 203, 1241, 28, 97, "Input",
+ CellID->78064551],
+Cell[5990, 233, 174, 3, 28, "Input",
+ CellID->2065883987],
+Cell[6167, 238, 173, 3, 28, "Input",
+ CellID->451756693],
+Cell[CellGroupData[{
+Cell[6365, 245, 172, 3, 28, "Input",
+ CellID->1320047106],
+Cell[6540, 250, 144, 3, 28, "Output",
+ CellID->307901097]
+}, Open  ]],
+Cell[6699, 256, 100, 2, 55, "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+Cell[6802, 260, 125, 3, 33, "ExampleSection",
+ CellID->1293636265],
+Cell[6930, 265, 148, 3, 21, "ExampleSection",
+ CellID->1020263627],
+Cell[7081, 270, 127, 3, 21, "ExampleSection",
+ CellID->2061341341],
+Cell[7211, 275, 130, 3, 70, "ExampleSubsection",
+ CellID->1757724783],
+Cell[7344, 280, 130, 3, 70, "ExampleSubsection",
+ CellID->1295379749],
+Cell[7477, 285, 131, 3, 21, "ExampleSection",
+ CellID->258228157],
+Cell[7611, 290, 142, 3, 21, "ExampleSection",
+ CellID->2123667759],
+Cell[7756, 295, 135, 3, 21, "ExampleSection",
+ CellID->1305812373],
+Cell[7894, 300, 140, 3, 21, "ExampleSection",
+ CellID->1653164318],
+Cell[8037, 305, 132, 3, 21, "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

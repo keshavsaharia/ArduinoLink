@@ -1,0 +1,522 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     13174,        513]
+NotebookOptionsPosition[      8700,        355]
+NotebookOutlinePosition[      9333,        380]
+CellTagsIndexPosition[      9255,        375]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["9.0", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellChangeTimes->{{3.564169091190268*^9, 3.564169092346972*^9}},
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["ArduinoLink Package", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->1440200647],
+
+Cell["ArduinoLink`", "Categorization",
+ CellLabel->"Context",
+ CellID->1164088792],
+
+Cell["ArduinoLink/ref/ArduinoDigitalWrite", "Categorization",
+ CellLabel->"URI",
+ CellID->1264302974]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["ArduinoDigitalWrite", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ Cell[BoxData[
+  RowBox[{"ArduinoDigitalWrite", "[", 
+   RowBox[{
+    StyleBox["port", "TI"], ",", " ", 
+    StyleBox["val", "TI"]}], "]"}]], "InlineFormula"],
+ "\[LineSeparator]writes the value specified to the given digital port on the \
+currently connected ",
+ Cell[BoxData[
+  ButtonBox["Arduino",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ArduinoLink/ref/Arduino"]], "InlineFormula"],
+ "."
+}], "Usage",
+ CellChangeTimes->{
+  3.561228581752502*^9, {3.561229076027763*^9, 3.5612291104951153`*^9}, {
+   3.561229384659862*^9, 3.561229385007538*^9}, {3.56122941613657*^9, 
+   3.561229416814662*^9}}],
+
+Cell["XXXX", "Notes",
+ CellChangeTimes->{{3.561229619580275*^9, 3.5612296225222187`*^9}},
+ CellID->1067943069]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell["XXXX", "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell["\<\
+Set digital port 13 to the defined high value, essentially turning it on. \
+Note that the given port is for the Arduino Uno, and may need to be modified \
+to the pin corresponding to the built-in LED on the connected Arduino.\
+\>", "ExampleText",
+ CellChangeTimes->{{3.561229633011046*^9, 3.561229662194129*^9}, {
+  3.564168885038303*^9, 3.56416892354315*^9}},
+ CellID->1037382108],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", 
+  RowBox[{"First", "[", 
+   RowBox[{"ArduinoList", "[", "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.561229460788291*^9, 3.561229471375471*^9}, {
+  3.564168861590322*^9, 3.5641688680552063`*^9}},
+ CellLabel->"In[15]:=",
+ CellID->1933520475],
+
+Cell[BoxData[
+ RowBox[{"ArduinoDigitalWrite", "[", 
+  RowBox[{"13", ",", "High"}], "]"}]], "Input",
+ CellChangeTimes->{{3.561229477575872*^9, 3.5612294785590677`*^9}, {
+  3.561229670166017*^9, 3.561229673329194*^9}, {3.564168927173559*^9, 
+  3.564168927865426*^9}},
+ CellLabel->"In[16]:=",
+ CellID->956076921],
+
+Cell[TextData[{
+ "The canonical Blink example (http://arduino.cc/en/Tutorial/Blink) can be \
+written with a single line of ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " code."
+}], "ExampleText",
+ CellChangeTimes->{{3.564168966442191*^9, 3.564168993673066*^9}, {
+  3.564169024629212*^9, 3.564169032449727*^9}},
+ CellID->73394626],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"ArduinoDigitalWrite", "[", 
+      RowBox[{"13", ",", "#"}], "]"}], ";", 
+     RowBox[{"Pause", "[", "1", "]"}], ";"}], ")"}], "&"}], "/@", 
+  RowBox[{"{", 
+   RowBox[{"Low", ",", "High"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.561229477575872*^9, 3.5612294785590677`*^9}, {
+  3.561229670166017*^9, 3.561229673329194*^9}, {3.564168927173559*^9, 
+  3.564168959202997*^9}},
+ CellLabel->"In[16]:=",
+ CellID->1207844131],
+
+Cell["\<\
+Note that 1 corresponds to High, and 0 corresponds to Low.\
+\>", "ExampleText",
+ CellChangeTimes->{{3.5641690480099*^9, 3.564169076010652*^9}},
+ CellID->1644188472],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ArduinoDigitalWrite", "[", 
+   RowBox[{"13", ",", "1"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Pause", "[", "1", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ArduinoDigitalWrite", "[", 
+   RowBox[{"13", ",", "0"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.564169041916815*^9, 3.5641690649302464`*^9}},
+ CellID->887865804]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{868, 1021},
+WindowMargins->{{289, Automatic}, {129, Automatic}},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 4, \
+2012)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[7180, 297, 100, 2, 55, "ExtendedExamplesSection",
+   CellTags->"ExtendedExamples",
+   CellID->1854448968]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 9117, 368}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 391, 15, 24, "History",
+ CellID->1247902091],
+Cell[CellGroupData[{
+Cell[973, 39, 68, 1, 29, "CategorizationSection",
+ CellID->1122911449],
+Cell[1044, 42, 79, 2, 30, "Categorization",
+ CellID->686433507],
+Cell[1126, 46, 93, 2, 30, "Categorization",
+ CellID->1440200647],
+Cell[1222, 50, 82, 2, 30, "Categorization",
+ CellID->1164088792],
+Cell[1307, 54, 101, 2, 30, "Categorization",
+ CellID->1264302974]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1445, 61, 55, 1, 19, "KeywordsSection",
+ CellID->477174294],
+Cell[1503, 64, 45, 1, 70, "Keywords",
+ CellID->1164421360]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1585, 70, 65, 1, 19, "TemplatesSection",
+ CellID->1872225408],
+Cell[1653, 73, 94, 2, 70, "Template",
+ CellID->1562036412],
+Cell[1750, 77, 82, 2, 70, "Template",
+ CellID->158391909],
+Cell[1835, 81, 81, 2, 70, "Template",
+ CellID->1360575930],
+Cell[1919, 85, 82, 2, 70, "Template",
+ CellID->793782254]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2038, 92, 53, 1, 19, "DetailsSection",
+ CellID->307771771],
+Cell[2094, 95, 63, 2, 70, "Details",
+ CellID->670882175],
+Cell[2160, 99, 69, 2, 70, "Details",
+ CellID->350963985],
+Cell[2232, 103, 64, 2, 70, "Details",
+ CellID->8391405],
+Cell[2299, 107, 69, 2, 70, "Details",
+ CellID->3610269],
+Cell[2371, 111, 61, 2, 70, "Details",
+ CellID->401364205],
+Cell[2435, 115, 61, 2, 70, "Details",
+ CellID->350204745],
+Cell[2499, 119, 63, 2, 70, "Details",
+ CellID->732958810],
+Cell[2565, 123, 78, 2, 70, "Details",
+ CellID->222905350],
+Cell[2646, 127, 67, 2, 70, "Details",
+ CellID->240026365]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2750, 134, 62, 1, 63, "ObjectName",
+ CellID->1224892054],
+Cell[2815, 137, 642, 18, 73, "Usage"],
+Cell[3460, 157, 110, 2, 25, "Notes",
+ CellID->1067943069]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3607, 164, 57, 1, 43, "TutorialsSection",
+ CellID->250839057],
+Cell[3667, 167, 45, 1, 16, "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3749, 173, 83, 1, 30, "RelatedDemonstrationsSection",
+ CellID->1268215905],
+Cell[3835, 176, 58, 1, 16, "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3930, 182, 65, 1, 30, "RelatedLinksSection",
+ CellID->1584193535],
+Cell[3998, 185, 49, 1, 16, "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4084, 191, 55, 1, 30, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[4142, 194, 43, 1, 16, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4222, 200, 57, 1, 30, "MoreAboutSection",
+ CellID->38303248],
+Cell[4282, 203, 46, 1, 16, "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4365, 209, 356, 11, 69, "PrimaryExamplesSection",
+ CellID->880084151],
+Cell[4724, 222, 391, 7, 52, "ExampleText",
+ CellID->1037382108],
+Cell[5118, 231, 295, 7, 24, "Input",
+ CellID->1933520475],
+Cell[5416, 240, 309, 7, 25, "Input",
+ CellID->956076921],
+Cell[5728, 249, 337, 9, 37, "ExampleText",
+ CellID->73394626],
+Cell[6068, 260, 497, 14, 25, "Input",
+ CellID->1207844131],
+Cell[6568, 276, 174, 4, 22, "ExampleText",
+ CellID->1644188472],
+Cell[6745, 282, 398, 10, 57, "Input",
+ CellID->887865804]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7180, 297, 100, 2, 55, "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+Cell[7283, 301, 125, 3, 33, "ExampleSection",
+ CellID->1293636265],
+Cell[7411, 306, 148, 3, 21, "ExampleSection",
+ CellID->1020263627],
+Cell[CellGroupData[{
+Cell[7584, 313, 127, 3, 21, "ExampleSection",
+ CellID->2061341341],
+Cell[7714, 318, 130, 3, 70, "ExampleSubsection",
+ CellID->1757724783],
+Cell[7847, 323, 130, 3, 70, "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+Cell[7992, 329, 131, 3, 21, "ExampleSection",
+ CellID->258228157],
+Cell[8126, 334, 142, 3, 21, "ExampleSection",
+ CellID->2123667759],
+Cell[8271, 339, 135, 3, 21, "ExampleSection",
+ CellID->1305812373],
+Cell[8409, 344, 140, 3, 21, "ExampleSection",
+ CellID->1653164318],
+Cell[8552, 349, 132, 3, 21, "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

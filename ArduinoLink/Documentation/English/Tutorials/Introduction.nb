@@ -1,0 +1,447 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     13021,        438]
+NotebookOptionsPosition[     10296,        336]
+NotebookOutlinePosition[     10730,        353]
+CellTagsIndexPosition[     10687,        350]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["9.0", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellChangeTimes->{{3.56374146106876*^9, 3.563741461092554*^9}, {
+  3.5637415368779078`*^9, 3.563741545427813*^9}, {3.564169113933868*^9, 
+  3.564169113951664*^9}},
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Tutorial", "Categorization",
+ CellID->686433507],
+
+Cell["ArduinoLink", "Categorization",
+ CellID->605800465],
+
+Cell["ArduinoLink`", "Categorization",
+ CellID->468444828],
+
+Cell["ArduinoLink/tutorial/GettingStarted", "Categorization"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->1427428552],
+
+Cell["ArduinoLink", "Keywords",
+ CellChangeTimes->{{3.563741452491346*^9, 3.563741454993767*^9}},
+ CellID->1251852827]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellID->218895918]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Getting Started", "Title",
+ CellChangeTimes->{3.5617461365741663`*^9},
+ CellID->509267359],
+
+Cell[TextData[{
+ "ArduinoLink is a ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " package for interfacing with Arduino microcontrollers, allowing code \
+generation, serial communication, and real-time control of the device. It is \
+designed with rapid prototyping in mind, integrating with the symbolic \
+structure of ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " while using a code generative backend to abstract low-level programming \
+and real-time control."
+}], "Text",
+ CellChangeTimes->{{3.560615723075212*^9, 3.560615724854684*^9}, {
+  3.5606166973802958`*^9, 3.5606167216805964`*^9}, {3.561746091118518*^9, 
+  3.561746110468474*^9}, {3.563738447457625*^9, 3.563738457903944*^9}, {
+  3.56373848929527*^9, 3.56373872658147*^9}},
+ CellID->1294900221],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "The ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " Arduino Environment"
+}], "Section",
+ CellChangeTimes->{{3.5606168327764397`*^9, 3.560616851892631*^9}},
+ CellID->1505234610],
+
+Cell["\<\
+The ArduinoLink package requires the following components, which must be \
+downloaded separately from their respective sources.\
+\>", "Text",
+ CellChangeTimes->{{3.560617253438483*^9, 3.560617278767827*^9}, {
+  3.563738744413803*^9, 3.5637387535101557`*^9}},
+ CellID->506680433],
+
+Cell[TextData[{
+ ButtonBox["Arduino IDE (version 0022):",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://arduino.googlecode.com/files/arduino-0022.dmg"], None},
+  ButtonNote->"http://arduino.googlecode.com/files/arduino-0022.dmg"],
+ " Development IDE for the Arduino."
+}], "Text",
+ CellChangeTimes->{{3.5606175405915833`*^9, 3.5606175734013577`*^9}, {
+  3.560618477461343*^9, 3.560618485970934*^9}, {3.5637400021426363`*^9, 
+  3.563740055974247*^9}},
+ CellID->971181736],
+
+Cell[TextData[{
+ StyleBox[ButtonBox["CrossPack for AVR development (version 20100115):",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.obdev.at/downloads/crosspack/CrossPack-AVR-20100115.dmg"],
+     None}],
+  FontWeight->"Plain"],
+ StyleBox[" a free collection of tools for compiling and uploading to AVR \
+microcontrollers.",
+  FontWeight->"Plain"]
+}], "Text",
+ CellChangeTimes->{{3.5606175405915833`*^9, 3.5606175734013577`*^9}, {
+  3.560618477461343*^9, 3.560618485970934*^9}, {3.5637400021426363`*^9, 
+  3.563740072021928*^9}, {3.563740107439333*^9, 3.563740124327097*^9}},
+ CellID->406633839],
+
+Cell[TextData[{
+ "ArduinoLink dynamically generates C code using the ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " ",
+ ButtonBox["SymbolicC",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ArduinoLink/guide/SymbolicC"],
+ " package, and uploads the C code to the device. It generates a server that \
+communicates with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " over the serial port, uses the make utility in CrossPack and the avr-g++ \
+library in the Arduino IDE to compile the code. It then uses avrdude, another \
+utility in CrossPack, to upload the generated code to the Arduino. The entire \
+process of generating and uploading code to the device is abstracted away \
+from the user, performed seamlessly in the background by ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.560618100855063*^9, 3.560618345178183*^9}, {
+  3.563740152952742*^9, 3.5637404446073236`*^9}},
+ CellID->941629505],
+
+Cell["\<\
+ArduinoLink currently only has support for MacOSX. It is flexible enough to \
+work with many different Arduino microcontrollers, but rigorous testing has \
+only been performed on the Uno (both R2 and R3), Duemilanove, and Mega.\
+\>", "Text",
+ CellChangeTimes->{{3.560618100855063*^9, 3.560618366094483*^9}, {
+  3.563740455391396*^9, 3.563740535370163*^9}},
+ CellID->1484474378],
+
+Cell[CellGroupData[{
+
+Cell["Installation", "Subsection",
+ CellChangeTimes->{{3.5606184028484583`*^9, 3.560618404069363*^9}},
+ CellID->95860200],
+
+Cell["\<\
+1. Install the Arduino IDE into your Applications folder.  Be sure to install \
+the FTDI USB-serial driver that is included with the distribution of the IDE.\
+\
+\>", "Text",
+ CellChangeTimes->{{3.560618422726255*^9, 3.560618453763859*^9}, {
+  3.5637405476179857`*^9, 3.563740616115649*^9}},
+ CellID->509646150],
+
+Cell[TextData[{
+ "2. Install the CrossPack-AVR onto your system path. Details on the \
+CrossPack environment can be found on their ",
+ ButtonBox["website",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.obdev.at/products/crosspack/index.html"], None}],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.560618464817676*^9, 3.560618469291353*^9}, {
+  3.560618527685418*^9, 3.560618538257062*^9}, {3.560618609817503*^9, 
+  3.5606186224865522`*^9}, {3.563740617827587*^9, 3.56374065445256*^9}, {
+  3.563740819186453*^9, 3.563740886721821*^9}},
+ CellID->1458058814]
+}, Open  ]]
+}, Open  ]],
+
+Cell["", "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Connecting to the Arduino", "Section",
+ CellChangeTimes->{{3.5606167661866283`*^9, 3.5606167719590673`*^9}, {
+  3.5637409178692837`*^9, 3.5637409260757504`*^9}},
+ CellID->1706883548],
+
+Cell["\<\
+To ensure that everything is working correctly, plug an Arduino into your \
+computer and \
+\>", "Text",
+ CellChangeTimes->{{3.5637410396522017`*^9, 3.5637410632875233`*^9}},
+ CellID->1001967319],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{"ArduinoList", "[", "]"}], Cell["\<\
+Lists the USB serial ports that have a connected Arduino device.\
+\>", "TableText"]},
+   {
+    RowBox[{"ArduinoConnect", "[", 
+     StyleBox["arduino",
+      FontSlant->"Italic"], "]"}], Cell["\<\
+Connects to the given Arduino microcontroller.\
+\>", "TableText"]},
+   {
+    RowBox[{"ArduinoDigitalWrite", "[", 
+     RowBox[{
+      StyleBox["port",
+       FontSlant->"Italic"], ",", " ", 
+      StyleBox["val",
+       FontSlant->"Italic"]}], "]"}], Cell["\<\
+Writes the given value to the given port on the Arduino.\
+\>", "TableText"]}
+  }]], "DefinitionBox",
+ CellChangeTimes->{{3.5637409289262333`*^9, 3.5637410330315657`*^9}, {
+  3.563741070746847*^9, 3.5637410951876707`*^9}},
+ CellID->2096742444],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+First, ensure that there is at least one connected device.\
+\>", "MathCaption",
+ CellChangeTimes->{{3.563741101672428*^9, 3.5637411525615597`*^9}},
+ CellID->836781195],
+
+Cell[BoxData[
+ RowBox[{"ArduinoList", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.5637411067137527`*^9, 3.563741109250925*^9}},
+ CellID->2058623809]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Then, connect to it. The LEDs on the Arduino should flash several times.\
+\>", "MathCaption",
+ CellChangeTimes->{{3.563741101672428*^9, 3.563741197082728*^9}},
+ CellID->2003598523],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", 
+  RowBox[{"First", "[", 
+   RowBox[{"ArduinoList", "[", "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.5637411067137527`*^9, 3.563741109250925*^9}, {
+  3.563741172739306*^9, 3.563741177100518*^9}},
+ CellID->1936791101],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", 
+  RowBox[{
+   RowBox[{"First", "[", 
+    RowBox[{"ArduinoList", "[", "]"}], "]"}], ",", 
+   RowBox[{"\"\<Microcontroller\>\"", "\[Rule]", "\"\<Duemilanove\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.563741203888618*^9, 3.563741218484446*^9}},
+ CellID->90913281]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Try modifying the state of the Arduino's built-in LED, to ensure everything \
+works.\
+\>", "MathCaption",
+ CellChangeTimes->{{3.563741101672428*^9, 3.563741197082728*^9}, {
+  3.563741250573729*^9, 3.563741324006139*^9}},
+ CellID->1923239412],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ArduinoDigitalWrite", "[", 
+   RowBox[{"13", ",", "High"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Pause", "[", "1", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ArduinoDigitalWrite", "[", 
+   RowBox[{"13", ",", "Low"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.5637411067137527`*^9, 3.563741109250925*^9}, {
+  3.563741172739306*^9, 3.563741177100518*^9}, {3.563741286134034*^9, 
+  3.563741288952568*^9}, {3.563741325631172*^9, 3.563741337777132*^9}},
+ CellID->2108426487]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Tutorials", "RelatedTutorialsSection",
+ CellID->415694126],
+
+Cell["\<\
+ArduinoConnect, ArduinoDigitalWrite, ArduinoDigitalRead, ArduinoAnalogWrite, \
+ArduinoAnalogRead, ArduinoInstallConnectModule\
+\>", "RelatedTutorials",
+ CellChangeTimes->{{3.5637413575595627`*^9, 3.563741430377194*^9}},
+ CellID->806871991]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{819, 1070},
+WindowMargins->{{628, Automatic}, {Automatic, 53}},
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 4, \
+2012)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "TutorialPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 490, 17, 24, "History",
+ CellID->1247902091],
+Cell[CellGroupData[{
+Cell[1072, 41, 68, 1, 29, "CategorizationSection",
+ CellID->1122911449],
+Cell[1143, 44, 54, 1, 19, "Categorization",
+ CellID->686433507],
+Cell[1200, 47, 57, 1, 19, "Categorization",
+ CellID->605800465],
+Cell[1260, 50, 58, 1, 19, "Categorization",
+ CellID->468444828],
+Cell[1321, 53, 61, 0, 19, "Categorization"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1419, 58, 56, 1, 29, "KeywordsSection",
+ CellID->1427428552],
+Cell[1478, 61, 118, 2, 19, "Keywords",
+ CellID->1251852827]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1633, 68, 53, 1, 29, "DetailsSection",
+ CellID->307771771],
+Cell[1689, 71, 43, 1, 19, "Details",
+ CellID->218895918]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1769, 77, 96, 2, 106, "Title",
+ CellID->509267359],
+Cell[1868, 81, 772, 17, 74, "Text",
+ CellID->1294900221],
+Cell[CellGroupData[{
+Cell[2665, 102, 201, 7, 43, "Section",
+ CellID->1505234610],
+Cell[2869, 111, 288, 6, 40, "Text",
+ CellID->506680433],
+Cell[3160, 119, 481, 11, 23, "Text",
+ CellID->971181736],
+Cell[3644, 132, 613, 14, 40, "Text",
+ CellID->406633839],
+Cell[4260, 148, 950, 23, 108, "Text",
+ CellID->941629505],
+Cell[5213, 173, 387, 7, 57, "Text",
+ CellID->1484474378],
+Cell[CellGroupData[{
+Cell[5625, 184, 121, 2, 39, "Subsection",
+ CellID->95860200],
+Cell[5749, 188, 320, 7, 40, "Text",
+ CellID->509646150],
+Cell[6072, 197, 565, 13, 40, "Text",
+ CellID->1458058814]
+}, Open  ]]
+}, Open  ]],
+Cell[6664, 214, 19, 0, 43, "Section"],
+Cell[CellGroupData[{
+Cell[6708, 218, 188, 3, 43, "Section",
+ CellID->1706883548],
+Cell[6899, 223, 204, 5, 23, "Text",
+ CellID->1001967319],
+Cell[7106, 230, 777, 23, 86, "DefinitionBox",
+ CellID->2096742444],
+Cell[CellGroupData[{
+Cell[7908, 257, 177, 4, 39, "MathCaption",
+ CellID->836781195],
+Cell[8088, 263, 148, 3, 24, "Input",
+ CellID->2058623809]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8273, 271, 190, 4, 39, "MathCaption",
+ CellID->2003598523],
+Cell[8466, 277, 271, 6, 24, "Input",
+ CellID->1936791101],
+Cell[8740, 285, 316, 8, 24, "Input",
+ CellID->90913281]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9093, 298, 251, 6, 39, "MathCaption",
+ CellID->1923239412],
+Cell[9347, 306, 548, 12, 57, "Input",
+ CellID->2108426487]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9944, 324, 72, 1, 72, "RelatedTutorialsSection",
+ CellID->415694126],
+Cell[10019, 327, 249, 5, 38, "RelatedTutorials",
+ CellID->806871991]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,0 +1,735 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     20129,        726]
+NotebookOptionsPosition[     14350,        524]
+NotebookOutlinePosition[     14979,        549]
+CellTagsIndexPosition[     14900,        544]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["ArduinoLink Package", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->1096214882],
+
+Cell["ArduinoLink`", "Categorization",
+ CellLabel->"Context",
+ CellID->821314161],
+
+Cell["ArduinoLink/ref/ArduinoConnect", "Categorization",
+ CellLabel->"URI",
+ CellID->1949704658]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["ArduinoConnect", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ Cell[BoxData[
+  RowBox[{"ArduinoConnect", "[", 
+   StyleBox["port", "TI"], "]"}]], "InlineFormula"],
+ "\[LineSeparator]connects ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " to the Arduino on the specified port, by uploading a program onto the \
+Arduino and setting up serial communication between the Arduino and ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ "."
+}], "Usage",
+ CellChangeTimes->{
+  3.561415154611343*^9, {3.564170275408445*^9, 3.56417034366613*^9}}],
+
+Cell["The following options can be given: ", "Notes"],
+
+Cell[BoxData[GridBox[{
+   {Cell["   ", "ModInfo"], "BaudRate", "9600", Cell["\<\
+baud rate for the SerialIO connection\
+\>", "TableText"]},
+   {Cell["   ", "ModInfo"], "Include", 
+    ButtonBox["None",
+     BaseStyle->"Link"], Cell["\<\
+list of connect modules with necessary arguments to load on connection\
+\>", "TableText"]},
+   {Cell["   ", "ModInfo"], "Microcontroller", "Uno", Cell[
+    "the Arduino type", "TableText"]},
+   {Cell["   ", "ModInfo"], "UploadProtocol", "stk500v1", Cell["\<\
+protocol for uploading the generated sketch XXXX\
+\>", "TableText"]},
+   {Cell["   ", "ModInfo"], "UploadSpeed", "115200", Cell["\<\
+speed for uploading the generated sketch\
+\>", "TableText"]}
+  }]], "3ColumnTableMod",
+ CellChangeTimes->{{3.561415290937326*^9, 3.561415381451442*^9}, {
+  3.561415445130557*^9, 3.5614154762627497`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell["XXXX", "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell["Loads the package.", "ExampleText",
+ CellChangeTimes->{{3.564170139395801*^9, 3.564170142618751*^9}},
+ CellID->1523513850],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<ArduinoLink`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.561227003651895*^9, 3.561227007180503*^9}},
+ CellLabel->"In[13]:=",
+ CellID->1020631573],
+
+Cell["\<\
+Store a reference to the serial port that the Arduino is connected to.\
+\>", "ExampleText",
+ CellChangeTimes->{{3.5641701454589*^9, 3.5641701696992483`*^9}, {
+  3.564170240743458*^9, 3.5641702418528547`*^9}},
+ CellID->1249753769],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"device", "=", 
+  RowBox[{"First", "[", 
+   RowBox[{"ArduinoList", "[", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.561227047378108*^9, 3.561227067255227*^9}},
+ CellLabel->"In[14]:=",
+ CellID->1292114199],
+
+Cell[BoxData["\<\"/dev/tty.usbmodem411\"\>"], "Output",
+ CellChangeTimes->{{3.56122705345236*^9, 3.561227067697196*^9}, 
+   3.561415503373418*^9},
+ CellLabel->"Out[14]=",
+ CellID->1685770935]
+}, Open  ]],
+
+Cell[TextData[{
+ "Connects to the device on the specified serial port, uploading a program \
+onto the Arduino and linking it to the current ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " session."
+}], "ExampleText",
+ CellChangeTimes->{{3.56417017202719*^9, 3.5641702604452877`*^9}},
+ CellID->74044276],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", "device", "]"}]], "Input",
+ CellChangeTimes->{{3.5612270286122913`*^9, 3.561227057589923*^9}},
+ CellLabel->"In[15]:=",
+ CellID->1802958822],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", "\"\</dev/tty.usbmodem411\>\"", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.564170185707431*^9, 3.564170194132242*^9}},
+ CellID->1069115119],
+
+Cell["\<\
+The options for ArduinoConnect must be used in order to connect to an Arduino \
+other than the Arduino Uno. To see a list of supported Arduinos, evaluate the \
+$SupportedArduinos symbol.\
+\>", "ExampleText",
+ CellChangeTimes->{{3.564170354145146*^9, 3.56417050949899*^9}},
+ CellID->622130584],
+
+Cell[BoxData["$SupportedArduinos"], "Input",
+ CellChangeTimes->{{3.5641704414240217`*^9, 3.564170444930533*^9}},
+ CellID->2052084456],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", 
+  RowBox[{
+   RowBox[{"First", "[", 
+    RowBox[{"ArduinoList", "[", "]"}], "]"}], ",", 
+   RowBox[{"\"\<Microcontroller\>\"", "\[Rule]", "\"\<Duemilanove\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.564170375397057*^9, 3.5641703883512897`*^9}},
+ CellID->50848045]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["BaudRate", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection"],
+
+Cell[TextData[{
+ "Specifies the baud rate that the Arduino will use to communicate with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ ". The default baud rate is 9600."
+}], "ExampleText",
+ CellChangeTimes->{{3.5641700563857327`*^9, 3.5641701062738047`*^9}},
+ CellID->1711281662],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", 
+  RowBox[{
+   RowBox[{"First", "[", 
+    RowBox[{"ArduinoList", "[", "]"}], "]"}], ",", 
+   RowBox[{"\"\<BaudRate\>\"", "\[Rule]", "9600"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.564170071602434*^9, 3.564170083162754*^9}},
+ CellID->262408963]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Include", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection"],
+
+Cell["\<\
+Allows the user to include both built-in and user-defined modules to expand \
+the functionality of ArduinoConnect. A module named \"X\" is defined in \
+\"ArduinoLink/ArduinoLink/ConnectModules/X.m\".\
+\>", "ExampleText",
+ CellChangeTimes->{{3.5641698553963737`*^9, 3.5641698937650414`*^9}, {
+  3.564169933222114*^9, 3.564170026008243*^9}},
+ CellID->1121918389],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", 
+  RowBox[{
+   RowBox[{"First", "[", 
+    RowBox[{"ArduinoList", "[", "]"}], "]"}], ",", 
+   RowBox[{"\"\<Include\>\"", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Servo\>\"", ",", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Servos\>\"", "\[Rule]", "2"}], "}"}]}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.56416990019355*^9, 3.564169930911354*^9}},
+ CellID->1175943263],
+
+Cell["\<\
+For an example module, see \"SampleModule.m\" in the ConnectModules folder.\
+\>", "ExampleText",
+ CellChangeTimes->{{3.564170028448107*^9, 3.56417005240068*^9}},
+ CellID->786417900]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Microcontroller", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection"],
+
+Cell["\<\
+Specifies the type of Arduino microcontroller being connected to. Setting \
+this option automatically chooses the corresponding upload protocol, upload \
+speed, and baud rate, based on the selected Arduino. The default \
+microcontroller is the Arduino Uno.\
+\>", "ExampleText",
+ CellChangeTimes->{{3.561469326770625*^9, 3.561469335919588*^9}, {
+  3.564169826707724*^9, 3.564169848004067*^9}, {3.5641701125547953`*^9, 
+  3.564170123514344*^9}, {3.564170533676578*^9, 3.5641705645163307`*^9}},
+ CellID->1047322225],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", 
+  RowBox[{
+   RowBox[{"First", "[", 
+    RowBox[{"ArduinoList", "[", "]"}], "]"}], ",", 
+   RowBox[{"\"\<Microcontroller\>\"", "\[Rule]", "\"\<Uno\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.5612270286122913`*^9, 3.561227057589923*^9}, {
+  3.5614693486197233`*^9, 3.561469354585868*^9}, {3.564169742219327*^9, 
+  3.564169744781848*^9}, {3.5641705732566566`*^9, 3.564170574661134*^9}},
+ CellLabel->"In[5]:=",
+ CellID->1568664763],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", 
+  RowBox[{
+   RowBox[{"First", "[", 
+    RowBox[{"ArduinoList", "[", "]"}], "]"}], ",", 
+   RowBox[{"\"\<Microcontroller\>\"", "\[Rule]", "\"\<Mega\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.5612270286122913`*^9, 3.561227057589923*^9}, {
+  3.5614693486197233`*^9, 3.561469354585868*^9}, {3.5641697311501226`*^9, 
+  3.564169749717987*^9}, {3.5641705780383*^9, 3.564170578765799*^9}},
+ CellLabel->"In[5]:=",
+ CellID->1394838663]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["UploadProtocol", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection"],
+
+Cell["\<\
+Sets the upload protocol. Note that this is usually not required, since \
+specifying the Microcontroller option will automatically choose the correct \
+upload protocol for the specified board.\
+\>", "ExampleText",
+ CellChangeTimes->{{3.5614700633017473`*^9, 3.56147006662101*^9}, {
+  3.56416979180525*^9, 3.5641698142111177`*^9}},
+ CellID->419411394],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", 
+  RowBox[{
+   RowBox[{"First", "[", 
+    RowBox[{"ArduinoList", "[", "]"}], "]"}], ",", 
+   RowBox[{"\"\<UploadProtocol\>\"", "\[Rule]", "\"\<stk500v1\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.5614700502621107`*^9, 3.56147008637621*^9}, 
+   3.561470228381748*^9, 3.5641697535819197`*^9},
+ CellLabel->"In[7]:=",
+ CellID->274935216]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["UploadSpeed", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection"],
+
+Cell["\<\
+Sets the upload speed. Note that this is usually not required, since \
+specifying the Microcontroller option will automatically choose the correct \
+upload speed for the specified board.\
+\>", "ExampleText",
+ CellChangeTimes->{{3.561470239840934*^9, 3.5614702438962803`*^9}, {
+   3.564169765036018*^9, 3.5641697870825853`*^9}, 3.5641698209074783`*^9},
+ CellID->1005969504],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", 
+  RowBox[{
+   RowBox[{"First", "[", 
+    RowBox[{"ArduinoList", "[", "]"}], "]"}], ",", 
+   RowBox[{"\"\<UploadSpeed\>\"", "\[Rule]", "115200"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.561470274267235*^9, 3.564169756070063*^9},
+ CellLabel->"In[10]:=",
+ CellID->190700897]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{885, 984},
+WindowMargins->{{4, Automatic}, {Automatic, 0}},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 4, \
+2012)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[7815, 318, 100, 2, 55, "ExtendedExamplesSection",
+   CellTags->"ExtendedExamples",
+   CellID->1854448968]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 14762, 537}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 324, 14, 24, "History",
+ CellID->1247902091],
+Cell[CellGroupData[{
+Cell[906, 38, 68, 1, 29, "CategorizationSection",
+ CellID->1122911449],
+Cell[977, 41, 79, 2, 30, "Categorization",
+ CellID->686433507],
+Cell[1059, 45, 93, 2, 30, "Categorization",
+ CellID->1096214882],
+Cell[1155, 49, 81, 2, 30, "Categorization",
+ CellID->821314161],
+Cell[1239, 53, 96, 2, 30, "Categorization",
+ CellID->1949704658]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1372, 60, 55, 1, 19, "KeywordsSection",
+ CellID->477174294],
+Cell[1430, 63, 45, 1, 70, "Keywords",
+ CellID->1164421360]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1512, 69, 65, 1, 19, "TemplatesSection",
+ CellID->1872225408],
+Cell[1580, 72, 94, 2, 70, "Template",
+ CellID->1562036412],
+Cell[1677, 76, 82, 2, 70, "Template",
+ CellID->158391909],
+Cell[1762, 80, 81, 2, 70, "Template",
+ CellID->1360575930],
+Cell[1846, 84, 82, 2, 70, "Template",
+ CellID->793782254]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1965, 91, 53, 1, 19, "DetailsSection",
+ CellID->307771771],
+Cell[2021, 94, 63, 2, 70, "Details",
+ CellID->670882175],
+Cell[2087, 98, 69, 2, 70, "Details",
+ CellID->350963985],
+Cell[2159, 102, 64, 2, 70, "Details",
+ CellID->8391405],
+Cell[2226, 106, 69, 2, 70, "Details",
+ CellID->3610269],
+Cell[2298, 110, 61, 2, 70, "Details",
+ CellID->401364205],
+Cell[2362, 114, 61, 2, 70, "Details",
+ CellID->350204745],
+Cell[2426, 118, 63, 2, 70, "Details",
+ CellID->732958810],
+Cell[2492, 122, 78, 2, 70, "Details",
+ CellID->222905350],
+Cell[2573, 126, 67, 2, 70, "Details",
+ CellID->240026365]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2677, 133, 57, 1, 63, "ObjectName",
+ CellID->1224892054],
+Cell[2737, 136, 524, 15, 88, "Usage"],
+Cell[3264, 153, 53, 0, 25, "Notes"],
+Cell[3320, 155, 832, 19, 113, "3ColumnTableMod"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4189, 179, 57, 1, 43, "TutorialsSection",
+ CellID->250839057],
+Cell[4249, 182, 45, 1, 16, "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4331, 188, 83, 1, 30, "RelatedDemonstrationsSection",
+ CellID->1268215905],
+Cell[4417, 191, 58, 1, 16, "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4512, 197, 65, 1, 30, "RelatedLinksSection",
+ CellID->1584193535],
+Cell[4580, 200, 49, 1, 16, "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4666, 206, 55, 1, 30, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[4724, 209, 43, 1, 16, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4804, 215, 57, 1, 30, "MoreAboutSection",
+ CellID->38303248],
+Cell[4864, 218, 46, 1, 16, "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4947, 224, 356, 11, 69, "PrimaryExamplesSection",
+ CellID->880084151],
+Cell[5306, 237, 128, 2, 22, "ExampleText",
+ CellID->1523513850],
+Cell[5437, 241, 188, 4, 24, "Input",
+ CellID->1020631573],
+Cell[5628, 247, 239, 5, 22, "ExampleText",
+ CellID->1249753769],
+Cell[CellGroupData[{
+Cell[5892, 256, 231, 6, 24, "Input",
+ CellID->1292114199],
+Cell[6126, 264, 191, 4, 24, "Output",
+ CellID->1685770935]
+}, Open  ]],
+Cell[6332, 271, 309, 8, 37, "ExampleText",
+ CellID->74044276],
+Cell[6644, 281, 185, 4, 24, "Input",
+ CellID->1802958822],
+Cell[6832, 287, 184, 4, 25, "Input",
+ CellID->1069115119],
+Cell[7019, 293, 302, 6, 37, "ExampleText",
+ CellID->622130584],
+Cell[7324, 301, 133, 2, 25, "Input",
+ CellID->2052084456],
+Cell[7460, 305, 318, 8, 24, "Input",
+ CellID->50848045]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7815, 318, 100, 2, 55, "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+Cell[7918, 322, 125, 3, 33, "ExampleSection",
+ CellID->1293636265],
+Cell[8046, 327, 148, 3, 21, "ExampleSection",
+ CellID->1020263627],
+Cell[CellGroupData[{
+Cell[8219, 334, 106, 2, 21, "ExampleSection"],
+Cell[CellGroupData[{
+Cell[8350, 340, 113, 2, 24, "ExampleSubsection"],
+Cell[8466, 344, 285, 7, 37, "ExampleText",
+ CellID->1711281662],
+Cell[8754, 353, 292, 7, 24, "Input",
+ CellID->262408963]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9083, 365, 112, 2, 24, "ExampleSubsection"],
+Cell[9198, 369, 370, 7, 37, "ExampleText",
+ CellID->1121918389],
+Cell[9571, 378, 428, 12, 24, "Input",
+ CellID->1175943263],
+Cell[10002, 392, 191, 4, 22, "ExampleText",
+ CellID->786417900]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10230, 401, 120, 2, 24, "ExampleSubsection"],
+Cell[10353, 405, 522, 9, 52, "ExampleText",
+ CellID->1047322225],
+Cell[10878, 416, 483, 11, 24, "Input",
+ CellID->1568664763],
+Cell[11364, 429, 482, 11, 25, "Input",
+ CellID->1394838663]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11883, 445, 119, 2, 24, "ExampleSubsection"],
+Cell[12005, 449, 360, 7, 37, "ExampleText",
+ CellID->419411394],
+Cell[12368, 458, 387, 10, 25, "Input",
+ CellID->274935216]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12792, 473, 116, 2, 24, "ExampleSubsection"],
+Cell[12911, 477, 382, 7, 37, "ExampleText",
+ CellID->1005969504],
+Cell[13296, 486, 319, 8, 25, "Input",
+ CellID->190700897]
+}, Open  ]]
+}, Open  ]],
+Cell[13642, 498, 131, 3, 33, "ExampleSection",
+ CellID->258228157],
+Cell[13776, 503, 142, 3, 21, "ExampleSection",
+ CellID->2123667759],
+Cell[13921, 508, 135, 3, 21, "ExampleSection",
+ CellID->1305812373],
+Cell[14059, 513, 140, 3, 21, "ExampleSection",
+ CellID->1653164318],
+Cell[14202, 518, 132, 3, 21, "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

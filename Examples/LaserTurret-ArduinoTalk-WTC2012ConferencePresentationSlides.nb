@@ -1,0 +1,311 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     10478,        302]
+NotebookOptionsPosition[      9923,        280]
+NotebookOutlinePosition[     10277,        296]
+CellTagsIndexPosition[     10234,        293]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData["Quit"], "Input",
+ CellChangeTimes->{{3.559664124307679*^9, 3.55966412444706*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<ArduinoLink`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.559585226264962*^9, 3.559585231434939*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", 
+  RowBox[{
+   RowBox[{"First", "[", 
+    RowBox[{"LinkArduino", "[", "]"}], "]"}], ",", 
+   RowBox[{"\"\<Include\>\"", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Servo\>\"", ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Servos\>\"", "\[Rule]", "2"}], "}"}]}], "}"}], "}"}]}]}],
+   "]"}]], "Input",
+ CellChangeTimes->{{3.5595852821071463`*^9, 3.5595853050404663`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Hacky", " ", "way", " ", "to", " ", "get", " ", "Dynamic", " ", "to", " ",
+     "stop", " ", "spitting", " ", "out", " ", "weird", " ", "errors"}], " ", 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Off", "[", 
+     RowBox[{"Most", "::", "norest"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Off", "[", 
+     RowBox[{"Last", "::", "nolast"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Off", "[", 
+     RowBox[{"Part", "::", "take"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Off", "[", 
+     RowBox[{"Transpose", "::", "nmtx"}], "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.5596642920957603`*^9, 3.55966433041429*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ArduinoRun", "[", 
+   RowBox[{"\"\<ArduinoServoAttach\>\"", ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "9"}], "}"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ArduinoRun", "[", 
+   RowBox[{"\"\<ArduinoServoAttach\>\"", ",", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "11"}], "}"}]}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.559585311845517*^9, 3.5595853239722567`*^9}, {
+  3.559609653484702*^9, 3.559609660730698*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ServoSet", "[", 
+   RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
+  RowBox[{"(", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ArduinoRun", "[", 
+     RowBox[{"\"\<ArduinoServoWrite\>\"", ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "x"}], "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"ArduinoRun", "[", 
+     RowBox[{"\"\<ArduinoServoWrite\>\"", ",", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", "y"}], "}"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+   ")"}]}]], "Input",
+ CellChangeTimes->{{3.5595853293041153`*^9, 3.5595853551632977`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"bounds", "=", 
+   RowBox[{"{", 
+    RowBox[{"(*", " ", "x", " ", "*)"}], " ", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"66", ",", "124"}], "}"}], ",", 
+     RowBox[{"(*", " ", "y", " ", "*)"}], 
+     RowBox[{"{", 
+      RowBox[{"92", ",", "129"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"range", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Last", "[", "#", "]"}], "-", 
+      RowBox[{"First", "[", "#", "]"}]}], "&"}], "/@", "bounds"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dimensions", "=", 
+   RowBox[{"ImageDimensions", "[", 
+    RowBox[{"CurrentImage", "[", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Calibrate", "[", "point_List", "]"}], ":=", 
+    RowBox[{"IntegerPart", "/@", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"point", "/", "dimensions"}], ")"}], "*", "range"}], "+", 
+       RowBox[{"(", 
+        RowBox[{"First", "/@", "bounds"}], ")"}]}], ")"}]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Dynamic", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"image", "=", 
+     RowBox[{"CurrentImage", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"centroids", "=", 
+     RowBox[{"ComponentMeasurements", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"DeleteSmallComponents", "[", 
+        RowBox[{"Binarize", "[", 
+         RowBox[{"image", ",", "0.5"}], "]"}], "]"}], ",", 
+       "\"\<Centroid\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"ServoSet", "@@", 
+     RowBox[{"Calibrate", "[", "\[IndentingNewLine]", 
+      RowBox[{"p", "=", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Length", "[", "centroids", "]"}], ">", "0"}], ",", 
+         RowBox[{"Mean", "[", 
+          RowBox[{"centroids", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", "2"}], "]"}], "]"}], "]"}], ",", 
+         RowBox[{"dimensions", "/", "2"}]}], "]"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Show", "[", 
+     RowBox[{
+      RowBox[{"Rasterize", "[", 
+       RowBox[{"image", ",", "\"\<Graphics\>\""}], "]"}], ",", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"PointSize", "[", "Medium", "]"}], ",", "Red", ",", 
+         RowBox[{"Point", "[", "p", "]"}]}], "}"}], "]"}]}], "]"}]}], ",", 
+   RowBox[{"UpdateInterval", "\[Rule]", "0.3"}]}], "]"}]}], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGCQAmIQbSNofTar9ZXjIZMzYHrL64bbILpPaPEDEK3Bt+QV
+iP43V+Q9iN7EcvgriHapu/ITRJfkPvgHou9IWXFmA2m7GFsBED3PUkAERPdL
+HZEA0f/k9kiC6Ae7u7VA9IlLR/RBtMGkQzYg2ir9I5j2vrXSGURz+R0C0zrS
+B4NB9IJaszAQfe6NYTyI/tJpCqZFyp71NANpBYbvYHrClIx1IPo6R/JWEL3M
+M3kPiP51YgWErs45CaIl3pWdAdFLhdh+gGgnzaSfILpqu3pEC5CeInc+GkQL
+sV8oANH77GZVguhlTf8aQPQXI49uEK1henAhiN4RdwxMXzlUvBxEm8ndWQGi
+DyzY/QVEPzg15ytYPOsyTyuQdnCoEALRXtdspEH0ua48ORDNtK1ND0SrvMk1
+AtEAfFXZ7A==
+  "]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"bounds", "=", 
+   RowBox[{"{", 
+    RowBox[{"(*", " ", "x", " ", "*)"}], " ", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"66", ",", "124"}], "}"}], ",", 
+     RowBox[{"(*", " ", "y", " ", "*)"}], 
+     RowBox[{"{", 
+      RowBox[{"92", ",", "129"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"range", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Last", "[", "#", "]"}], "-", 
+      RowBox[{"First", "[", "#", "]"}]}], "&"}], "/@", "bounds"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dimensions", "=", 
+   RowBox[{"ImageDimensions", "[", 
+    RowBox[{"CurrentImage", "[", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Calibrate", "[", "point_List", "]"}], ":=", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"point", "\[Equal]", 
+       RowBox[{"{", "}"}]}], ",", 
+      RowBox[{"Calibrate", "[", 
+       RowBox[{"dimensions", "/", "2"}], "]"}], ",", 
+      RowBox[{"IntegerPart", "/@", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Mean", "[", 
+             RowBox[{"point", "[", 
+              RowBox[{"[", 
+               RowBox[{"All", ",", "2"}], "]"}], "]"}], "]"}], "/", 
+            "dimensions"}], ")"}], "*", "range"}], "+", 
+         RowBox[{"(", 
+          RowBox[{"First", "/@", "bounds"}], ")"}]}], ")"}]}]}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Dynamic", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"image", "=", 
+     RowBox[{"CurrentImage", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"ServoSet", "@@", 
+     RowBox[{"Calibrate", "[", 
+      RowBox[{"ComponentMeasurements", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"DeleteSmallComponents", "[", 
+         RowBox[{"Binarize", "[", 
+          RowBox[{"image", ",", "0.5"}], "]"}], "]"}], ",", 
+        "\"\<Centroid\>\""}], "]"}], "]"}]}]}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Show", "[", 
+     RowBox[{
+      RowBox[{"Rasterize", "[", 
+       RowBox[{"image", ",", "\"\<Graphics\>\""}], "]"}], ",", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"PointSize", "[", "Medium", "]"}], ",", "Red", ",", 
+         RowBox[{"Point", "[", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Length", "[", "centroids", "]"}], ">", "0"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"ServoSet", "@@", 
+              RowBox[{"Calibrate", "[", 
+               RowBox[{"(", 
+                RowBox[{"m", "=", 
+                 RowBox[{"Mean", "[", 
+                  RowBox[{"Last", "/@", "centroids"}], "]"}]}], ")"}], 
+               "]"}]}], ";", "m"}], ",", 
+            RowBox[{"dimensions", "/", "2"}]}], "]"}], "]"}]}], "}"}], 
+       "]"}]}], "]"}], "*)"}], "\[IndentingNewLine]", ",", 
+   RowBox[{"UpdateInterval", "\[Rule]", "0.3"}]}], "]"}]}], "Input",
+ CellChangeTimes->CompressedData["
+1:eJwlzEsowwEAx/F/i2EHzdphNi1ORgtbrMy28jjQSqKkiNoSeUTRikXL46B5
+pZ2URWzmsiSysmSPGI2haTU7/CkOs2hMTPpnv7/Dt8/tW6AZau5mEASRlwoq
+cqou+2aj1e5yP+3+i+EeLnI2SSjK3opCao37BvfSPJ+wbjKYhKODJAUjfHlW
+f0pVh5INzZVsLlzie3mQEjpzIXlkLIa+W28pLFtxK6C8J06rDu/UQlajm1Ys
+cLXA9QlZK7yKSbpgYq6Clqt7np9OmU980S6beu0wlKk9gNYGrRP++Gz/6gfO
+Ie9V54cWDvMb1hRpknD8sLBtJqVJGGiHnIzrYXisWh2D1inKABPSeiMUVbg2
+oKPzlDboHtmGMmHEBmN6swPGGaET+ChlnsEmy8IF/ZXEA9AssN5AcYkyBBnp
+rAhke34fIGlXPEG1bvcd3oUdH/APWcfvOQ==
+  "]],
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", 
+  RowBox[{"CurrentImage", "[", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.559660587504137*^9, 3.5596605932741127`*^9}}]
+},
+WindowSize->{740, 677},
+WindowMargins->{{313, Automatic}, {Automatic, 52}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 22, \
+2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 95, 1, 27, "Input"],
+Cell[655, 23, 143, 2, 27, "Input"],
+Cell[801, 27, 441, 12, 27, "Input"],
+Cell[1245, 41, 775, 20, 88, "Input"],
+Cell[2023, 63, 483, 12, 43, "Input"],
+Cell[2509, 77, 594, 15, 73, "Input"],
+Cell[3106, 94, 3031, 81, 208, "Input"],
+Cell[6140, 177, 3614, 96, 223, "Input"],
+Cell[9757, 275, 162, 3, 27, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

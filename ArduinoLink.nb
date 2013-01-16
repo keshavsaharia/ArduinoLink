@@ -1,0 +1,107 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      3127,         97]
+NotebookOptionsPosition[      2761,         80]
+NotebookOutlinePosition[      3118,         96]
+CellTagsIndexPosition[      3075,         93]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Ensure", " ", "that", " ", "the", " ", "ArduinoLink", " ", "directory", 
+    " ", "is", " ", "on", " ", 
+    RowBox[{"Mathematica", "'"}], "s", " ", "$Path"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"$Path", ",", "\"\<path/to/ArduinoLink\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.556891256095487*^9, 3.5568912803793163`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Load", " ", "the", " ", "package", " ", "into", " ", "Mathematica"}], " ",
+    "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Needs", "[", "\"\<ArduinoLink`\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{{3.5568912447205067`*^9, 3.556891253121826*^9}, {
+  3.556891283722445*^9, 3.556891286955069*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "Run", " ", "this", " ", "initialization", " ", "method", " ", "with", 
+     " ", "an", " ", "Arduino", " ", 
+     RowBox[{"connected", ".", " ", "If"}], " ", "there", " ", "are", " ", 
+     "any", " ", "missing", " ", "dependencies"}], ",", " ", 
+    RowBox[{
+    "it", " ", "will", " ", "give", " ", "you", " ", "the", " ", "URL", " ", 
+     "where", " ", "you", " ", "can", " ", "download", " ", "them"}]}], " ", 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"InitializeArduinoLink", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.556891290186708*^9, 3.556891368780559*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"If", " ", "the", " ", "built"}], "-", 
+     RowBox[{
+     "in", " ", "LED", " ", "on", " ", "the", " ", "Arduino", " ", "starts", 
+      " ", "blinking"}]}], ",", " ", 
+    RowBox[{
+     RowBox[{"you", "'"}], "re", " ", "all", " ", 
+     RowBox[{"set", "!"}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"ArduinoUpload", "[", 
+   RowBox[{
+    RowBox[{"First", "[", 
+     RowBox[{"LinkArduino", "[", "]"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"DigitalBlink", "[", 
+      RowBox[{"13", ",", "1000"}], "]"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.556891373994976*^9, 3.556891390414166*^9}, {
+  3.556891435220652*^9, 3.5568915036490726`*^9}}]
+},
+WindowSize->{740, 698},
+WindowMargins->{{350, Automatic}, {Automatic, 50}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
+2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 434, 10, 43, "Input"],
+Cell[994, 32, 356, 8, 43, "Input"],
+Cell[1353, 42, 651, 14, 58, "Input"],
+Cell[2007, 58, 750, 20, 43, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

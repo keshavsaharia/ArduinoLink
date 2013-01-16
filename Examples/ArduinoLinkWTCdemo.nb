@@ -1,0 +1,691 @@
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[         0,          0]
+NotebookDataLength[     26501,        690]
+NotebookOptionsPosition[     24162,        606]
+NotebookOutlinePosition[     24518,        622]
+CellTagsIndexPosition[     24475,        619]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ArduinoLink", "Section",
+ CellChangeTimes->{{3.528030760241325*^9, 3.528030765075673*^9}}],
+
+Cell[TextData[{
+ "A ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " package for programming and communicating with Arduino devices"
+}], "Subsection",
+ CellChangeTimes->{{3.528030873394672*^9, 3.528030906530705*^9}}],
+
+Cell["\<\
+Allows Arduino microcontrollers to be programmed with SymbolicC\
+\>", "Subsection",
+ CellChangeTimes->{{3.528030939632639*^9, 3.528030953937236*^9}}],
+
+Cell["\<\
+Simplifies digital and analog pin I/O\
+\>", "Subsection",
+ CellChangeTimes->{{3.528030865666554*^9, 3.528030871423647*^9}, {
+  3.528030924104246*^9, 3.528030929816436*^9}, {3.528030963064301*^9, 
+  3.528031022307003*^9}}],
+
+Cell["\<\
+Implements symbolic code generation to allow vast simplification of code\
+\>", "Subsection",
+ CellChangeTimes->{{3.528031026355217*^9, 3.528031145166254*^9}}],
+
+Cell[TextData[{
+ "Automates the Arduino build and upload process and abstracts it to a \
+high-level ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " function"
+}], "Subsection",
+ CellChangeTimes->{{3.528031147582706*^9, 3.528031184999847*^9}}],
+
+Cell[TextData[{
+ "Allows ",
+ StyleBox["Mathematica\[CloseCurlyQuote]s ",
+  FontSlant->"Italic"],
+ "vast collection of functionality to be used to program and control hardware \
+devices"
+}], "Subsection",
+ CellChangeTimes->{{3.528031187583798*^9, 3.5280312294398613`*^9}, {
+  3.528031277580181*^9, 3.528031296267033*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Connecting the device", "Section",
+ CellChangeTimes->{{3.52803076768451*^9, 3.528030794078355*^9}, {
+  3.528030859175501*^9, 3.528030896431222*^9}, {3.528031302947021*^9, 
+  3.52803131042482*^9}, {3.528031872612256*^9, 3.5280318814744053`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Get", "[", "\"\<ArduinoLink`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.527954219164815*^9, 3.527954225070491*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LinkArduino", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.528031349390203*^9, 3.528031350672338*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"Arduino", "[", 
+   RowBox[{"\<\"/dev/tty.usbmodemfa141\"\>", ",", "\<\"atmega168\"\>", ",", 
+    "16000000", ",", "\<\"stk500v1\"\>"}], "]"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.528031351198587*^9, {3.528169779642778*^9, 3.5281698041901197`*^9}, 
+   3.5281740461800623`*^9, 3.528228127412139*^9, 3.528329019275069*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"uno", "=", 
+  RowBox[{"First", "[", 
+   RowBox[{"LinkArduino", "[", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.527954225906728*^9, 3.527954239623571*^9}, 
+   3.528031342702238*^9}],
+
+Cell[BoxData[
+ RowBox[{"Arduino", "[", 
+  RowBox[{"\<\"/dev/tty.usbmodemfa141\"\>", ",", "\<\"atmega168\"\>", ",", 
+   "16000000", ",", "\<\"stk500v1\"\>"}], "]"}]], "Output",
+ CellChangeTimes->{
+  3.527954240060068*^9, 3.5279553942171793`*^9, 3.527955493148033*^9, {
+   3.527961136227331*^9, 3.527961151370625*^9}, 3.527961200582206*^9, 
+   3.527962544923492*^9, 3.527963429236135*^9, 3.527963466558547*^9, 
+   3.527967193837091*^9, 3.5279701085974293`*^9, 3.527970410983262*^9, 
+   3.528030385739292*^9, 3.528032664727743*^9, 3.5280334512307*^9, 
+   3.528033698133254*^9, 3.528036406885097*^9, 3.5280449236935463`*^9, 
+   3.528045825460835*^9, 3.528048427853548*^9, 3.5280489995566263`*^9, 
+   3.528050345812768*^9, 3.528081655060734*^9, 3.528082707182962*^9, 
+   3.528084729880068*^9, 3.528084873562717*^9, 3.528137488701144*^9, 
+   3.528165027066214*^9, 3.528169656086631*^9, 3.528169726081698*^9, {
+   3.528169775722103*^9, 3.528169802965361*^9}, 3.528171488894742*^9, 
+   3.528172230847601*^9, 3.5281723246887007`*^9, 3.52817252825065*^9, 
+   3.52817292696819*^9, 3.5281729999206963`*^9, 3.5281732132672*^9, 
+   3.528174050772283*^9, 3.528174533575776*^9, 3.528174926713118*^9, 
+   3.5281750988846903`*^9, {3.528175142019977*^9, 3.528175155723678*^9}, 
+   3.528175621111038*^9, 3.5281760108993053`*^9, 3.528211254672886*^9, 
+   3.5282167499274817`*^9, 3.528217470674844*^9, 3.5282192572597237`*^9, 
+   3.528219634553073*^9, 3.5282197794358177`*^9, 3.528220038263721*^9, 
+   3.52822078670039*^9, 3.5282209812019176`*^9, 3.528222103969411*^9, 
+   3.5282231308695498`*^9, 3.528223874731266*^9, 3.528225232512291*^9, 
+   3.528228133131741*^9, 3.528230000122583*^9, 3.528297397966308*^9, 
+   3.528297428927966*^9, 3.528329014233595*^9, 3.556892308298465*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The basics", "Section",
+ CellChangeTimes->{{3.52803135726888*^9, 3.5280313680370293`*^9}, {
+  3.528031885250828*^9, 3.528031886090393*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ArduinoUpload", "[", 
+  RowBox[{"uno", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", " ", 
+    RowBox[{"(*", " ", 
+     RowBox[{"optional", " ", "argument"}], " ", "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{"(*", "  ", 
+     RowBox[{
+      RowBox[{"function", " ", "declarations"}], ",", " ", 
+      RowBox[{"global", " ", "variables"}], ",", " ", 
+      RowBox[{"CPreprocessor", " ", "statements"}]}], " ", "*)"}], " ", 
+    "\[IndentingNewLine]", "}"}], ",", 
+   RowBox[{"{", " ", "\[IndentingNewLine]", 
+    RowBox[{"(*", "  ", 
+     RowBox[{
+      RowBox[{"setup", " ", "instructions"}], ",", " ", 
+      RowBox[{
+      "run", " ", "once", " ", "when", " ", "the", " ", "program", " ", "is", 
+       " ", "started"}]}], " ", "*)"}], " ", "\[IndentingNewLine]", "}"}], 
+   ",", 
+   RowBox[{"{", " ", "\[IndentingNewLine]", 
+    RowBox[{"(*", "  ", 
+     RowBox[{
+      RowBox[{"loop", " ", "instructions"}], ",", " ", 
+      RowBox[{
+      "repeated", " ", "forever", " ", "until", " ", "the", " ", "device", 
+       " ", "is", " ", "turned", " ", 
+       RowBox[{"off", "/", "reset"}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+    "}"}]}], "\[IndentingNewLine]", "]"}]], "Code",
+ CellChangeTimes->{{3.5280313608095713`*^9, 3.528031423482933*^9}, {
+  3.52803147274898*^9, 3.528031573106059*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Simple blink example", "Subsection",
+ CellChangeTimes->{{3.5280315860669937`*^9, 3.528031589410597*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ArduinoUpload", "[", 
+  RowBox[{"uno", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"DigitalWrite", "[", 
+      RowBox[{"13", ",", "High"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ArduinoWait", "[", "500", "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"DigitalWrite", "[", 
+      RowBox[{"13", ",", "Low"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ArduinoWait", "[", "500", "]"}]}], "\[IndentingNewLine]", 
+    "}"}]}], "]"}]], "Code",
+ CellChangeTimes->{{3.528031531561618*^9, 3.528031536971133*^9}, {
+  3.528031579692313*^9, 3.528031620422526*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Abstraction of the blink example\
+\>", "Subsection",
+ CellChangeTimes->{{3.528031648164228*^9, 3.528031652364325*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ArduinoUpload", "[", 
+  RowBox[{"uno", ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"SquareWave", "[", "13", "]"}], "}"}]}], "]"}]], "Code",
+ CellChangeTimes->{{3.528031656068882*^9, 3.528031669598774*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ArduinoUpload", "[", 
+  RowBox[{"uno", ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"DigitalBlink", "[", 
+     RowBox[{"13", ",", "50"}], "]"}], "}"}]}], "]"}]], "Code",
+ CellChangeTimes->{{3.5280317946182947`*^9, 3.528031806114715*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Further output functionality", "Subsection",
+ CellChangeTimes->{{3.528031897244117*^9, 3.528031907755375*^9}, {
+  3.528032004414476*^9, 3.528032007422003*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ArduinoUpload", "[", 
+  RowBox[{"uno", ",", 
+   RowBox[{"{", "}"}], ",", "\n", 
+   RowBox[{"{", " ", "\n", "\t", 
+    RowBox[{
+     RowBox[{"DigitalWrite", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}], ",", " ", 
+       "High"}], "]"}], ",", " ", 
+     RowBox[{"(*", " ", 
+      RowBox[{"digital", " ", "output"}], " ", "*)"}], "\n", "\t", 
+     RowBox[{"AnalogWrite", "[", 
+      RowBox[{"1", ",", " ", "758"}], "]"}]}], " ", 
+    RowBox[{"(*", " ", 
+     RowBox[{"analog", " ", "output"}], " ", "*)"}], "\n", "}"}]}], 
+  "]"}]], "Code",
+ CellChangeTimes->{{3.528031909835498*^9, 3.528032019394093*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ArduinoUpload", "[", 
+  RowBox[{"uno", ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"DigitalWrite", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}], ",", "High"}], 
+      "]"}], ",", 
+     RowBox[{"AnalogWrite", "[", 
+      RowBox[{"1", ",", "758"}], "]"}]}], "}"}]}], "]"}]], "Output",
+ CellChangeTimes->{3.528033679837492*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Serial servo motor controller", "Section",
+ CellChangeTimes->{{3.528032065692882*^9, 3.528032094344553*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ArduinoUpload", "[", 
+  RowBox[{"uno", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"CFunction", "[", 
+     RowBox[{"\"\<void\>\"", ",", "\"\<waitForSerialMessage\>\"", ",", 
+      RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"CWhile", "[", 
+        RowBox[{
+         RowBox[{"COperator", "[", 
+          RowBox[{"Not", ",", 
+           RowBox[{"{", 
+            RowBox[{"ArduinoSerialAvailableQ", "[", "]"}], "}"}]}], "]"}], 
+         ",", 
+         RowBox[{"CComment", "[", "\"\<wait\>\"", "]"}]}], "]"}], "}"}]}], 
+     "]"}], "\[IndentingNewLine]", "}"}], ",", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"ArduinoServoAttach", "[", 
+      RowBox[{"\"\<pan\>\"", ",", "10"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ArduinoServoAttach", "[", 
+      RowBox[{"\"\<tilt\>\"", ",", "11"}], "]"}]}], "\[IndentingNewLine]", 
+    "}"}], ",", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"CCall", "[", 
+         RowBox[{"\"\<waitForSerialMessage\>\"", ",", 
+          RowBox[{"{", "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"ArduinoServoWrite", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{"ArduinoSerialRead", "[", "]"}]}], "]"}]}], "}"}], "&"}], "/@", 
+     RowBox[{"{", 
+      RowBox[{"\"\<pan\>\"", ",", "\"\<tilt\>\""}], "}"}]}], 
+    "\[IndentingNewLine]", "}"}]}], "]"}]], "Code",
+ InitializationCell->True,
+ CellChangeTimes->{{3.5279542430685472`*^9, 3.527954305748891*^9}, {
+  3.52795453157791*^9, 3.527954570240011*^9}, {3.527955404039044*^9, 
+  3.527955437096641*^9}, {3.527963472287586*^9, 3.5279635758438463`*^9}, {
+  3.528044926491291*^9, 3.52804492734628*^9}, {3.5280472507444973`*^9, 
+  3.528047251352764*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"ServoSet", "[", 
+    RowBox[{"pan_", ",", "tilt_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ArduinoSerialWrite", "[", 
+      RowBox[{"uno", ",", "#"}], "]"}], "&"}], " ", "/@", " ", 
+    RowBox[{"{", 
+     RowBox[{"pan", ",", "tilt"}], "}"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Calibrate", "[", 
+    RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"63", "+", 
+      RowBox[{"x", "*", "0.3"}]}], ",", 
+     RowBox[{"91", "+", 
+      RowBox[{"y", "*", "0.28"}]}]}], "}"}]}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.5279556058593903`*^9, 3.527955636916223*^9}, {
+  3.528032354605405*^9, 3.528032355956378*^9}, {3.528033487299719*^9, 
+  3.528033487777421*^9}, {3.528037736919799*^9, 3.528037746407694*^9}, {
+  3.528170435666602*^9, 3.528170437575204*^9}, {3.528170468827647*^9, 
+  3.528170472035757*^9}, {3.528170526443613*^9, 3.528170528705552*^9}, {
+  3.5281705626363993`*^9, 3.528170562922285*^9}, {3.528170608405306*^9, 
+  3.528170675438201*^9}, {3.528170985288303*^9, 3.5281710006500273`*^9}, {
+  3.528171071450755*^9, 3.528171133387768*^9}, {3.528172572201091*^9, 
+  3.528172573397225*^9}, {3.528211347047686*^9, 3.528211348050831*^9}, {
+  3.52821250739565*^9, 3.5282125092507668`*^9}, {3.528219265367695*^9, 
+  3.528219267506769*^9}, {3.528219724863675*^9, 3.528219725278832*^9}, {
+  3.528220406733858*^9, 3.5282204070596333`*^9}, {3.528222190864551*^9, 
+  3.52822219943751*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Nifty examples", "Subsection",
+ CellChangeTimes->{{3.5280324105347643`*^9, 3.528032447574622*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ServoSet", "[", 
+     RowBox[{"x", ",", "y"}], "]"}], ";", " ", 
+    RowBox[{"IntegerPart", "/@", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "66", ",", "127"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", "92", ",", "131"}], "}"}]}], "]"}]], "Code",
+ CellChangeTimes->{{3.52817199458832*^9, 3.528172053784371*^9}, {
+  3.528211288092181*^9, 3.5282113202594423`*^9}, {3.528219020160047*^9, 
+  3.528219051001978*^9}, {3.528222469166622*^9, 3.528222492046373*^9}, {
+  3.52822390375961*^9, 3.528223991296968*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ServoSet", "@@", " ", 
+     RowBox[{"Calibrate", "[", 
+      RowBox[{"x", ",", "y"}], "]"}]}], ";", " ", 
+    RowBox[{"IntegerPart", "/@", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "180"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", "0", ",", "180"}], "}"}]}], "]"}]], "Code",
+ CellChangeTimes->{{3.52817199458832*^9, 3.528172053784371*^9}, {
+  3.528211288092181*^9, 3.5282113202594423`*^9}, {3.528219020160047*^9, 
+  3.528219051001978*^9}, {3.528222469166622*^9, 3.528222492046373*^9}, {
+  3.528222561405799*^9, 3.528222588216386*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Mouse", " ", "position"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Dynamic", "[", " ", 
+   RowBox[{
+    RowBox[{"pos", "=", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "180"}], "}"}], "+", 
+       RowBox[{
+        RowBox[{"MousePosition", "[", "]"}], "*", 
+        RowBox[{"{", 
+         RowBox[{"0.25", ",", 
+          RowBox[{"-", "0.25"}]}], "}"}]}]}], ")"}]}], ";", "\n", 
+    RowBox[{"ServoSet", " ", "@@", " ", "pos"}], ";", " ", "pos"}], " ", 
+   "]"}]}]], "Code",
+ CellChangeTimes->{{3.527956690177829*^9, 3.527956705233471*^9}, {
+  3.527956874229566*^9, 3.5279568855178833`*^9}, {3.5279569225200777`*^9, 
+  3.527956949905487*^9}, {3.527969313506055*^9, 3.5279693185677347`*^9}, {
+  3.528032455686344*^9, 3.528032458413287*^9}, {3.528032689766254*^9, 
+  3.528032690771802*^9}, {3.5280377510348997`*^9, 3.528037751848624*^9}, {
+  3.52817088950943*^9, 3.528170911422447*^9}, {3.528219277037488*^9, 
+  3.528219285258842*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{"Basic", " ", "object", " ", "tracking"}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.5281737192555656`*^9, 3.528173729933702*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", " ", 
+  RowBox[{
+   RowBox[{"pos", " ", "=", " ", 
+    RowBox[{"2", "/.", 
+     RowBox[{"ComponentMeasurements", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"image", " ", "=", " ", 
+         RowBox[{"Binarize", "[", 
+          RowBox[{
+           RowBox[{"ImageResize", "[", 
+            RowBox[{
+             RowBox[{"CurrentImage", "[", "]"}], ",", "180"}], "]"}], ",", 
+           "0.12"}], "]"}]}], ")"}], ",", "\"\<Centroid\>\""}], "]"}]}]}], 
+   ";", "\[IndentingNewLine]", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"ListQ", "[", "pos", "]"}], ",", 
+     RowBox[{"ServoSet", " ", "@@", " ", 
+      RowBox[{"(", 
+       RowBox[{"Calibrate", " ", "@@", " ", "pos"}], ")"}]}]}], "]"}], ";", 
+   " ", "image"}], "]"}]], "Code",
+ CellChangeTimes->{{3.5280324610795727`*^9, 3.5280325364013023`*^9}, {
+   3.528032571189386*^9, 3.528032607378447*^9}, {3.528032668783985*^9, 
+   3.5280326929105797`*^9}, {3.528033514736266*^9, 3.528033521897064*^9}, 
+   3.528037700931076*^9, {3.528044902209343*^9, 3.5280449026043587`*^9}, {
+   3.5280450782862797`*^9, 3.528045079241207*^9}, {3.528045888737502*^9, 
+   3.528045889045492*^9}, {3.528049372906024*^9, 3.528049373639531*^9}, {
+   3.52804994898417*^9, 3.528049949092182*^9}, {3.528049999032689*^9, 
+   3.52805004124664*^9}, {3.5280501724661303`*^9, 3.528050172647593*^9}, {
+   3.528082116851602*^9, 3.528082116997365*^9}, {3.528083023500996*^9, 
+   3.528083025643371*^9}, {3.5280849386000834`*^9, 3.528084939367196*^9}, {
+   3.528085087653263*^9, 3.528085089597109*^9}, {3.5281725377809763`*^9, 
+   3.52817253900414*^9}, {3.528173126012657*^9, 3.528173128506225*^9}, {
+   3.528173175366683*^9, 3.528173203311265*^9}, {3.528175371278536*^9, 
+   3.52817539128936*^9}, {3.528175765494437*^9, 3.528175809153653*^9}, {
+   3.528212587756068*^9, 3.528212624166177*^9}, 3.528216812085273*^9, 
+   3.528217144278421*^9, {3.528219691702162*^9, 3.528219700630569*^9}, {
+   3.528219791458954*^9, 3.528219796034094*^9}, {3.528220274477633*^9, 
+   3.528220274826803*^9}, {3.528220333171249*^9, 3.528220365836359*^9}, {
+   3.528222065709416*^9, 3.528222074061212*^9}, {3.52822383759172*^9, 
+   3.528223838126979*^9}, {3.528224083303731*^9, 3.528224087246173*^9}, {
+   3.528225351725013*^9, 3.528225351848104*^9}, 3.528329319505535*^9}],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+  "Example", " ", "using", " ", "image", " ", "differencing", " ", 
+   "instead"}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.528173703898472*^9, 3.528173712331971*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"pos", " ", "=", " ", 
+     RowBox[{"2", "/.", 
+      RowBox[{"ComponentMeasurements", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"image", " ", "=", " ", 
+          RowBox[{"Binarize", "[", 
+           RowBox[{
+            RowBox[{"ImageDifference", "@@", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"ImageResize", "[", 
+                 RowBox[{"#", ",", "180"}], "]"}], "&"}], "/@", 
+               RowBox[{"CurrentImage", "[", "2", "]"}]}], ")"}]}], ",", 
+            "0.1"}], "]"}]}], ")"}], ",", "\"\<Centroid\>\""}], "]"}]}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"ListQ", "[", "pos", "]"}], ",", 
+      RowBox[{"ServoSet", "@@", " ", 
+       RowBox[{"Calibrate", "[", "pos", "]"}]}]}], "]"}], ";", " ", "image"}],
+    ",", 
+   RowBox[{"UpdateInterval", "\[Rule]", "0.5"}]}], "]"}]], "Code",
+ CellChangeTimes->{{3.5280324610795727`*^9, 3.5280325364013023`*^9}, {
+   3.528032571189386*^9, 3.528032607378447*^9}, {3.528032668783985*^9, 
+   3.5280326929105797`*^9}, {3.528033514736266*^9, 3.528033521897064*^9}, 
+   3.528037700931076*^9, {3.528044902209343*^9, 3.5280449026043587`*^9}, {
+   3.5280450782862797`*^9, 3.528045079241207*^9}, {3.528045888737502*^9, 
+   3.528045889045492*^9}, {3.528049372906024*^9, 3.528049373639531*^9}, {
+   3.52804994898417*^9, 3.528049949092182*^9}, {3.528049999032689*^9, 
+   3.52805004124664*^9}, {3.5280501724661303`*^9, 3.528050172647593*^9}, {
+   3.528082116851602*^9, 3.528082116997365*^9}, {3.528083023500996*^9, 
+   3.528083025643371*^9}, {3.5280849386000834`*^9, 3.528084939367196*^9}, {
+   3.528085087653263*^9, 3.528085089597109*^9}, {3.5281725377809763`*^9, 
+   3.52817253900414*^9}, {3.528173126012657*^9, 3.528173128506225*^9}, {
+   3.528173175366683*^9, 3.528173203311265*^9}, 3.5281733090006123`*^9, {
+   3.52817354571644*^9, 3.528173549749166*^9}, {3.528212595884307*^9, 
+   3.5282125973642263`*^9}, {3.528219669636566*^9, 3.5282196890306187`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+   RowBox[{"A", " ", "little", " ", "more", " ", "involved"}], ",", " ", 
+   RowBox[{
+   "using", " ", "a", " ", "saved", " ", "reference", " ", "point", " ", "to",
+     " ", "pick", " ", "the", " ", "nearest", " ", "next", " ", "point"}]}], 
+  " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.5281737315771627`*^9, 3.528173744201448*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"target", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{"100", ",", "90"}], "}"}]}], ";"}], "\n", 
+ RowBox[{"Dynamic", "[", "\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Length", "[", 
+        RowBox[{"(", 
+         RowBox[{"pos", " ", "=", " ", 
+          RowBox[{"ComponentMeasurements", "[", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"Binarize", "[", 
+             RowBox[{
+              RowBox[{"ImageDifference", "@@", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"ImageResize", "[", 
+                   RowBox[{"#", ",", "180"}], "]"}], "&"}], "/@", 
+                 RowBox[{"CurrentImage", "[", "2", "]"}]}], ")"}]}], ",", 
+              "0.1"}], "]"}], ",", "\"\<Centroid\>\""}], "]"}]}], ")"}], " ", 
+        "]"}], " ", ">", " ", "1"}], ",", "\n", 
+      RowBox[{
+       RowBox[{"target", " ", "=", " ", 
+        RowBox[{"Calibrate", " ", "@@", " ", 
+         RowBox[{
+          RowBox[{"Nearest", "[", 
+           RowBox[{
+            RowBox[{"Last", "/@", " ", 
+             RowBox[{"Drop", "[", 
+              RowBox[{"pos", ",", "1"}], "]"}]}], ",", "target"}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}]}], ";", "\n", 
+       RowBox[{"ServoSet", " ", "@@", " ", "target"}], ";"}]}], " ", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+      "picks", " ", "closest", " ", "point", " ", "to", " ", "previous", " ", 
+       "target"}], " ", "*)"}], "\n", "]"}], " ", "target"}], ",", " ", 
+   RowBox[{"UpdateInterval", "\[Rule]", "0.5"}]}], "]"}]}], "Code",
+ CellChangeTimes->{{3.5280324610795727`*^9, 3.5280325364013023`*^9}, {
+   3.528032571189386*^9, 3.528032607378447*^9}, {3.528032668783985*^9, 
+   3.5280326929105797`*^9}, {3.528033514736266*^9, 3.528033521897064*^9}, 
+   3.528037700931076*^9, {3.528044902209343*^9, 3.5280449026043587`*^9}, {
+   3.5280450782862797`*^9, 3.528045079241207*^9}, {3.528045888737502*^9, 
+   3.528045889045492*^9}, {3.528049372906024*^9, 3.528049373639531*^9}, {
+   3.52804994898417*^9, 3.528049949092182*^9}, {3.528049999032689*^9, 
+   3.52805004124664*^9}, {3.5280501724661303`*^9, 3.528050172647593*^9}, {
+   3.528082116851602*^9, 3.528082116997365*^9}, {3.528083023500996*^9, 
+   3.528083025643371*^9}, {3.5280849386000834`*^9, 3.528084939367196*^9}, {
+   3.528085087653263*^9, 3.528085094307249*^9}, {3.528085983469996*^9, 
+   3.5280859861707897`*^9}, {3.528169963144836*^9, 3.5281699637343073`*^9}, {
+   3.5281700937365026`*^9, 3.528170139650721*^9}, {3.528170192115453*^9, 
+   3.528170264062828*^9}, {3.52817036724953*^9, 3.528170380186933*^9}, {
+   3.5281712076564703`*^9, 3.528171287846484*^9}, {3.528171325023905*^9, 
+   3.528171357802202*^9}, {3.528171506921441*^9, 3.5281715174522*^9}, {
+   3.528171615702414*^9, 3.52817161728093*^9}, {3.528171650201421*^9, 
+   3.528171690483471*^9}, {3.528172114513928*^9, 3.5281721204952087`*^9}, {
+   3.5281721596168003`*^9, 3.528172220758273*^9}, {3.528172313715747*^9, 
+   3.52817231403137*^9}, {3.528172471618662*^9, 3.528172477783128*^9}, {
+   3.52817361689084*^9, 3.5281736335490217`*^9}, {3.528219314639841*^9, 
+   3.5282193843573313`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Available functionality", "Section",
+ CellChangeTimes->{{3.528031432182415*^9, 3.5280314400306377`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Names", "[", "\"\<ArduinoLink`*\>\"", "]"}], "//", 
+  "TableForm"}]], "Input",
+ CellChangeTimes->{{3.528031441260684*^9, 3.5280314467225533`*^9}}]
+}, Open  ]]
+},
+WindowSize->{1197, 755},
+WindowMargins->{{52, Automatic}, {Automatic, 0}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
+2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[422, 15, 96, 1, 67, "Section"],
+Cell[521, 18, 222, 6, 34, "Subsection"],
+Cell[746, 26, 159, 3, 26, "Subsection"],
+Cell[908, 31, 231, 5, 26, "Subsection"],
+Cell[1142, 38, 168, 3, 26, "Subsection"],
+Cell[1313, 43, 248, 7, 26, "Subsection"],
+Cell[1564, 52, 320, 8, 27, "Subsection"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1921, 65, 250, 3, 67, "Section"],
+Cell[2174, 70, 141, 2, 27, "Input"],
+Cell[CellGroupData[{
+Cell[2340, 76, 125, 2, 27, "Input"],
+Cell[2468, 80, 365, 7, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2870, 92, 209, 5, 27, "Input"],
+Cell[3082, 99, 1759, 26, 27, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4890, 131, 145, 2, 67, "Section"],
+Cell[5038, 135, 1327, 31, 164, "Code"],
+Cell[CellGroupData[{
+Cell[6390, 170, 110, 1, 34, "Subsection"],
+Cell[6503, 173, 677, 14, 134, "Code"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7217, 192, 128, 3, 34, "Subsection"],
+Cell[7348, 197, 249, 6, 43, "Code"],
+Cell[7600, 205, 280, 7, 43, "Code"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7917, 217, 165, 2, 34, "Subsection"],
+Cell[CellGroupData[{
+Cell[8107, 223, 684, 18, 104, "Code"],
+Cell[8794, 243, 438, 13, 27, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9293, 263, 114, 1, 67, "Section"],
+Cell[9410, 266, 1830, 43, 179, "Code",
+ InitializationCell->True],
+Cell[11243, 311, 1540, 34, 43, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[12808, 349, 104, 1, 34, "Subsection"],
+Cell[12915, 352, 659, 16, 43, "Code"],
+Cell[13577, 370, 699, 17, 43, "Code"],
+Cell[14279, 389, 1034, 24, 74, "Code"],
+Cell[15316, 415, 178, 3, 27, "Input"],
+Cell[15497, 420, 2346, 43, 74, "Code"],
+Cell[17846, 465, 218, 5, 27, "Input"],
+Cell[18067, 472, 2127, 42, 74, "Code"],
+Cell[20197, 516, 381, 8, 27, "Input"],
+Cell[20581, 526, 3222, 64, 134, "Code"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23852, 596, 110, 1, 67, "Section"],
+Cell[23965, 599, 181, 4, 27, "Input"]
+}, Open  ]]
+}
+]
+*)
+

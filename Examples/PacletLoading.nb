@@ -1,0 +1,232 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      7243,        223]
+NotebookOptionsPosition[      5836,        167]
+NotebookOutlinePosition[      6364,        190]
+CellTagsIndexPosition[      6280,        185]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"PackPaclet", "[", 
+  "\"\</Users/Keshav/Documents/Wolfram/ArduinoLink/ArduinoLink\>\"", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.55931949583419*^9, 3.559319520146378*^9}}],
+
+Cell[BoxData["\<\"/Users/Keshav/Documents/Wolfram/ArduinoLink/ArduinoLink-0.0.\
+2.paclet\"\>"], "Output",
+ CellChangeTimes->{
+  3.5593195306349707`*^9, {3.5593197965945387`*^9, 3.559319814572186*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PacletInstall", "[", "%", "]"}]], "Input",
+ CellChangeTimes->{{3.559319815568074*^9, 3.559319818324024*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+  "Paclet", "[", "\<\"ArduinoLink\"\>", ",", "\<\"0.0.2\"\>", ",", "<>", "]"}],
+  PacletManager`Paclet[
+  "Name" -> "ArduinoLink", "Version" -> "0.0.2", "MathematicaVersion" -> "8+",
+    "SystemID" -> {"MacOSX-x86-64"}, "Loading" -> "Automatic", 
+   "Extensions" -> {{"Documentation", "MainPage" -> "Guides/ArduinoLink"}, {
+     "Kernel", "Root" -> ".", "Context" -> "ArduinoLink`", 
+      "Symbols" -> {"ArduinoConnect"}}}, "Location" -> 
+   "/Users/Keshav/Library/Mathematica/Paclets/Repository/ArduinoLink-0.0.2"]]]\
+, "Output",
+ CellChangeTimes->{3.559319820149858*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"PacletUninstall", "[", "\"\<ArduinoLink\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.559319799340859*^9, 3.5593198076527576`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PacletInstall", "[", "%", "]"}]], "Input",
+ CellChangeTimes->{{3.559319543079644*^9, 3.559319546425786*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+  "Paclet", "[", "\<\"ArduinoLink\"\>", ",", "\<\"0.0.1\"\>", ",", "<>", "]"}],
+  PacletManager`Paclet[
+  "Name" -> "ArduinoLink", "Version" -> "0.0.1", "MathematicaVersion" -> "8+",
+    "SystemID" -> {"MacOSX-x86-64"}, 
+   "Extensions" -> {{"Documentation", "MainPage" -> "Guides/ArduinoLink"}, {
+     "Kernel", "Root" -> ".", "Context" -> "ArduinoLink`"}}, "Location" -> 
+   "/Users/Keshav/Library/Mathematica/Paclets/Repository/ArduinoLink-0.0.1"]]]\
+, "Output",
+ CellChangeTimes->{3.559319550252953*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindFile", "[", "\"\<ArduinoLink`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.559319553931158*^9, 3.559319557849749*^9}}],
+
+Cell[BoxData["\<\"/Users/Keshav/Library/Mathematica/Paclets/Repository/\
+ArduinoLink-0.0.1/Kernel/init.m\"\>"], "Output",
+ CellChangeTimes->{3.559319558274804*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<ArduinoLink`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.5593196062693853`*^9, 3.559319612175743*^9}}],
+
+Cell[BoxData["Quit"], "Input",
+ CellChangeTimes->{{3.5593198438052177`*^9, 3.559319845436171*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$Packages"], "Input",
+ CellChangeTimes->{{3.5593198901576967`*^9, 3.55931989110251*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"GetFEKernelInit`\"\>", ",", "\<\"Developer`\"\>", 
+   ",", "\<\"ResourceLocator`\"\>", ",", "\<\"PacletManager`\"\>", 
+   ",", "\<\"QuantityUnits`\"\>", ",", "\<\"WebServices`\"\>", 
+   ",", "\<\"System`\"\>", ",", "\<\"Global`\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.559319891514595*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PacletInformation", "[", "\"\<ArduinoLink\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.5593199125787373`*^9, 3.559319916587668*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\<\"Name\"\>", "\[Rule]", "\<\"ArduinoLink\"\>"}], ",", 
+   RowBox[{"\<\"Version\"\>", "\[Rule]", "\<\"0.0.2\"\>"}], ",", 
+   RowBox[{"\<\"BuildNumber\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
+   RowBox[{"\<\"PlatformQualifier\"\>", "\[Rule]", "Null"}], ",", 
+   RowBox[{"\<\"MathematicaVersion\"\>", "\[Rule]", "\<\"8+\"\>"}], ",", 
+   RowBox[{"\<\"SystemID\"\>", "\[Rule]", 
+    RowBox[{"{", "\<\"MacOSX-x86-64\"\>", "}"}]}], ",", 
+   RowBox[{"\<\"Description\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
+   RowBox[{"\<\"Category\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
+   RowBox[{"\<\"Creator\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
+   RowBox[{"\<\"CreatorURL\"\>", "\[Rule]", "Null"}], ",", 
+   RowBox[{"\<\"Publisher\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
+   RowBox[{"\<\"Support\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
+   RowBox[{"\<\"Internal\"\>", "\[Rule]", "False"}], ",", 
+   RowBox[{"\<\"Location\"\>", 
+    "\[Rule]", \
+"\<\"/Users/Keshav/Library/Mathematica/Paclets/Repository/ArduinoLink-0.0.2\"\
+\>"}], ",", 
+   RowBox[{"\<\"Context\"\>", "\[Rule]", 
+    RowBox[{"{", "\<\"ArduinoLink`\"\>", "}"}]}], ",", 
+   RowBox[{"\<\"Enabled\"\>", "\[Rule]", "True"}], ",", 
+   RowBox[{"\<\"Loading\"\>", "\[Rule]", "Automatic"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.559319917011883*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"??", "ArduinoConnect"}]], "Input",
+ CellChangeTimes->{{3.5593199400239553`*^9, 3.55931994504683*^9}}],
+
+Cell["Global`ArduinoConnect", "Print", "PrintUsage",
+ CellChangeTimes->{3.559319945734071*^9},
+ CellTags->"Info3559301945-9612642"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.559319851543405*^9, 3.559319874709714*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", "]"}]], "Output",
+ CellChangeTimes->{3.5593198660217123`*^9}]
+}, Open  ]]
+},
+WindowSize->{740, 698},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 17, \
+2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3559301945-9612642"->{
+  Cell[5414, 151, 131, 2, 39, "Print",
+   CellTags->"Info3559301945-9612642"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3559301945-9612642", 6177, 179}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 196, 4, 27, "Input"],
+Cell[778, 28, 200, 3, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1015, 36, 132, 2, 27, "Input"],
+Cell[1150, 40, 618, 12, 27, "Output"]
+}, Open  ]],
+Cell[1783, 55, 154, 2, 27, "Input"],
+Cell[CellGroupData[{
+Cell[1962, 61, 132, 2, 27, "Input"],
+Cell[2097, 65, 552, 11, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2686, 81, 146, 2, 27, "Input"],
+Cell[2835, 85, 163, 2, 27, "Output"]
+}, Open  ]],
+Cell[3013, 90, 145, 2, 27, "Input"],
+Cell[3161, 94, 98, 1, 27, "Input"],
+Cell[CellGroupData[{
+Cell[3284, 99, 102, 1, 27, "Input"],
+Cell[3389, 102, 339, 6, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3765, 113, 156, 2, 27, "Input"],
+Cell[3924, 117, 1325, 25, 88, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5286, 147, 125, 2, 27, "Input"],
+Cell[5414, 151, 131, 2, 39, "Print",
+ CellTags->"Info3559301945-9612642"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5582, 158, 128, 2, 27, "Input"],
+Cell[5713, 162, 107, 2, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

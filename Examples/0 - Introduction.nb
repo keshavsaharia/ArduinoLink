@@ -1,0 +1,1040 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     35789,       1031]
+NotebookOptionsPosition[     30834,        865]
+NotebookOutlinePosition[     31815,        900]
+CellTagsIndexPosition[     31607,        892]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.5577728195277967`*^9, 3.5577728203969517`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["ArduinoLink", "Title",
+ CellChangeTimes->{{3.5574964804945717`*^9, 3.5574964826279173`*^9}}],
+
+Cell[TextData[{
+ "A ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " package for code generation and serial communication with the Arduino \
+microcontroller"
+}], "Subsubtitle",
+ CellChangeTimes->{{3.557496485348612*^9, 3.557496512124209*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Installing the prerequisites", "Subsection",
+ CellChangeTimes->{{3.557495550006797*^9, 3.557495559534718*^9}}],
+
+Cell[TextData[{
+ "The ArduinoLink package compiles using libraries from the Arduino IDE, \
+version 0022. To download this version, copy this link into your web browser. \
+Be sure to put Arduino.app into your Applications folder, and to install the \
+FTDI USB-serial driver.\n",
+ StyleBox["arduino.googlecode.com/files/arduino-0022.dmg\n\n", "Input",
+  FontWeight->"Plain"],
+ StyleBox["Next, install CrossPack-AVR, a free collection of tools for \
+compiling and uploading to AVR microcontrollers. The version ",
+  FontWeight->"Plain"],
+ StyleBox["must",
+  FontWeight->"Bold"],
+ StyleBox[" be ",
+  FontWeight->"Plain"],
+ "20100115 - to ensure you download the correct version, copy the following \
+link into your web browser.\n",
+ StyleBox["www.obdev.at/downloads/crosspack/CrossPack-AVR-20100115.dmg", 
+  "Input",
+  FontWeight->"Plain"]
+}], "Text",
+ CellChangeTimes->{{3.557495564238627*^9, 3.557495626976007*^9}, {
+  3.557495663707309*^9, 3.5574957941480837`*^9}, {3.5574958441922092`*^9, 
+  3.557495892742256*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Installing the package", "Subsection",
+ CellChangeTimes->{{3.557495187278113*^9, 3.55749522329974*^9}, {
+  3.557587438890154*^9, 3.5575874400315323`*^9}}],
+
+Cell[TextData[{
+ "Unzip the package into a directory on your ",
+ StyleBox["$Path", "Input"],
+ ".  The Applications folder of ",
+ StyleBox["$UserBaseDirectory", "Input"],
+ " is typical place for installing packages."
+}], "Text",
+ CellChangeTimes->{{3.5575874427920017`*^9, 3.557587503781901*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Load the package", "Subsection",
+ CellChangeTimes->{{3.557587573660347*^9, 3.557587580715417*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<ArduinoLink`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.557494868322104*^9, 3.557494872227173*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Listing the Arduinos", "Subsection",
+ CellChangeTimes->{{3.557495229932613*^9, 3.5574952337633743`*^9}, {
+   3.5575874142042427`*^9, 3.5575874148564672`*^9}, 3.557587587167994*^9}],
+
+Cell[TextData[{
+ StyleBox["ArduinoList", "Input"],
+ " returns a list of symbolic representations for each connected Arduino \
+device."
+}], "Text",
+ CellChangeTimes->{{3.5574950119083643`*^9, 3.557495032277031*^9}, {
+  3.561211609437037*^9, 3.561211611833242*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ArduinoList", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.557495240138019*^9, 3.557495243213863*^9}, 
+   3.561211616129051*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"Arduino", "[", 
+   RowBox[{"\<\"/dev/tty.usbmodem411\"\>", ",", "\<\"atmega328p\"\>", ",", 
+    "115200", ",", "16", ",", "9600"}], "]"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.557495243988584*^9, 3.557495312390111*^9, 3.557673073692533*^9, {
+   3.557673827530217*^9, 3.5576738469319468`*^9}, 3.5593284373469276`*^9, 
+   3.561299541218815*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"device", "=", 
+  RowBox[{"First", "[", 
+   RowBox[{"ArduinoList", "[", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5574948734739113`*^9, 3.5574948968220043`*^9}, 
+   3.561211617562347*^9}],
+
+Cell[BoxData[
+ RowBox[{"Arduino", "[", 
+  RowBox[{"\<\"/dev/tty.usbmodem411\"\>", ",", "\<\"atmega328p\"\>", ",", 
+   "115200", ",", "16", ",", "9600"}], "]"}]], "Output",
+ CellChangeTimes->{{3.557494885754974*^9, 3.5574948974994926`*^9}, 
+   3.557495502756197*^9, 3.557496133389277*^9, {3.5574981724171143`*^9, 
+   3.55749818056444*^9}, 3.5575880389915237`*^9, 3.557673074869001*^9, 
+   3.557673848843532*^9, 3.5576741258635683`*^9, {3.557674328764656*^9, 
+   3.557674336628488*^9}, {3.55777283368193*^9, 3.55777283934348*^9}, 
+   3.55777296695613*^9, 3.55932844129419*^9, {3.559602065720138*^9, 
+   3.559602073873562*^9}, 3.559603277196856*^9, 3.559603460928522*^9, 
+   3.5596041534008007`*^9, 3.559604233872294*^9, 3.561296958852395*^9, {
+   3.561297247506579*^9, 3.56129724979557*^9}, 3.561299542688341*^9}]
+}, Open  ]],
+
+Cell["\<\
+ArduinoList also supports several other Arduino boards, and configures the \
+symbolic representation accordingly.\
+\>", "Text",
+ CellChangeTimes->{{3.5574949915827303`*^9, 3.557495009252089*^9}, {
+   3.557495390774325*^9, 3.5574954248352337`*^9}, 3.561211618269457*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"device", "=", 
+  RowBox[{"First", "[", 
+   RowBox[{"ArduinoList", "[", 
+    RowBox[{"\"\<Microcontroller\>\"", "\[Rule]", "\"\<Duemilanove\>\""}], 
+    "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.557494945054311*^9, 3.557494968485252*^9}, {
+   3.5574953999415483`*^9, 3.5574954010534163`*^9}, 3.561211618961342*^9}],
+
+Cell[BoxData[
+ RowBox[{"Arduino", "[", 
+  RowBox[{"\<\"/dev/tty.usbmodemfd131\"\>", ",", "\<\"atmega328p\"\>", ",", 
+   "57600", ",", "\<\"stk500v1\"\>", ",", "9600"}], "]"}]], "Output",
+ CellChangeTimes->{{3.5574953954452877`*^9, 3.5574954062010317`*^9}}]
+}, Open  ]],
+
+Cell[TextData[{
+ "You can see all option values for supported microcontrollers with ",
+ StyleBox["$SupportedArduino", "Input"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.5593283477922564`*^9, 3.559328385768917*^9}, {
+  3.5593284485399637`*^9, 3.559328452050498*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$SupportedArduinos"], "Input",
+ CellChangeTimes->{{3.559328452900516*^9, 3.559328455294886*^9}, 
+   3.561296964344545*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Uno\"\>", ",", "\<\"Duemilanove\"\>", ",", "\<\"Mega\"\>", 
+   ",", "\<\"Mini\"\>", ",", "\<\"Fio\"\>", ",", "\<\"BT\"\>", 
+   ",", "\<\"LilyPad\"\>", ",", "\<\"Pro\"\>", ",", "\<\"Pro Mini\"\>", 
+   ",", "\<\"NG\"\>", ",", "\<\"Duemilanove w/ ATmega168\"\>", 
+   ",", "\<\"Mega w/ ATmega1280\"\>", ",", "\<\"BT w/ ATmega168\"\>", 
+   ",", "\<\"LilyPad w/ ATmega168\"\>", ",", "\<\"Pro w/ ATmega168\"\>", 
+   ",", "\<\"Pro Mini w/ ATmega168\"\>", ",", "\<\"Pro 3.3V w/ ATmega328\"\>",
+    ",", "\<\"Pro 3.3V w/ ATmega168\"\>", ",", "\<\"NG w/ ATmega8\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.559328456132831*^9, {3.561296962249029*^9, 3.561296965977941*^9}, 
+   3.561297254405472*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Connecting to the Arduino", "Subsection",
+ CellChangeTimes->{{3.557495475151413*^9, 3.557495486436838*^9}, {
+  3.557587595046844*^9, 3.5575875990271673`*^9}}],
+
+Cell[TextData[{
+ "Evaluating ",
+ StyleBox["ArduinoConnect", "Input"],
+ " uploads a ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " serial server onto the given Arduino.  This allows for reading and writing \
+to the analog and digital ports on the Arduino from ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ ", as well as developer functionality that will be covered in later examples."
+}], "Text",
+ CellChangeTimes->{{3.557495514717846*^9, 3.55749554545438*^9}, {
+  3.5575876016477633`*^9, 3.557587648321843*^9}, {3.559328467827919*^9, 
+  3.5593284855710907`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", "device", "]"}]], "Input",
+ CellChangeTimes->{{3.5574954907581577`*^9, 3.557495495670855*^9}}],
+
+Cell[TextData[{
+ "When connecting to the Arduino, you can specify Arduino addons that you \
+would like to load.  Addons are special ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " support for various sensors.   All addon support must be loaded on initial \
+connection."
+}], "Text",
+ CellChangeTimes->{{3.557672308653434*^9, 3.557672364121132*^9}, {
+  3.557672530845627*^9, 3.55767258081107*^9}}],
+
+Cell["\<\
+Connect to the Arduino and install addons with the specified configurations.\
+\>", "Text",
+ CellChangeTimes->{{3.5576723831949663`*^9, 3.55767241209562*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", 
+  RowBox[{"device", ",", 
+   RowBox[{"\"\<Include\>\"", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Servo\>\"", ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<pan\>\"", ",", "\"\<tilt\>\""}], "}"}]}], "}"}], 
+     "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5576730786511707`*^9, 3.557673079426453*^9}, {
+  3.559439231489476*^9, 3.55943924498033*^9}, {3.56129727391374*^9, 
+  3.561297280005746*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Arduino I/O", "Subsection",
+ CellChangeTimes->{{3.557587659443576*^9, 3.557587663033374*^9}}],
+
+Cell[TextData[{
+ "Run analog and digital I/O operations on the Arduino from ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.557496034256688*^9, 3.557496043680784*^9}, {
+  3.557587919573311*^9, 3.557587942553191*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "ArduinoDigitalWrite"}]], "Input",
+ CellChangeTimes->{{3.559482401623694*^9, 3.559482404752821*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"ArduinoDigitalWrite[port, val] writes the value to the given \
+digital port on the Arduino device connected from ArduinoConnect.\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.559482405285657*^9},
+ CellTags->"Info3559464405-8381484"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"ArduinoDigitalWrite", "[", 
+  RowBox[{"13", ",", "High"}], "]"}]], "Input",
+ CellChangeTimes->{{3.5574960272470913`*^9, 3.5574960532431087`*^9}, 
+   3.5575879839128313`*^9}],
+
+Cell[BoxData[
+ RowBox[{"ArduinoDigitalWrite", "[", 
+  RowBox[{"13", ",", "Low"}], "]"}]], "Input",
+ CellChangeTimes->{{3.557588066594508*^9, 3.5575880669201307`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "ArduinoDigitalRead"}]], "Input",
+ CellChangeTimes->{{3.5594824166361437`*^9, 3.559482418819193*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"ArduinoDigitalRead[port] returns the digital value of the \
+given port on the Arduino device connected from ArduinoConnect.\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.5594824196673737`*^9},
+ CellTags->"Info3559464419-8381484"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"ArduinoDigitalRead", "[", "3", "]"}]], "Input",
+ CellChangeTimes->{3.5575880024200363`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "ArduinoAnalogWrite"}]], "Input",
+ CellChangeTimes->{{3.559482431934512*^9, 3.55948243533844*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"ArduinoAnalogWrite[port, val] writes the given value to the \
+given analog port on the Arduino device connected from ArduinoConnect.\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.559482435734316*^9},
+ CellTags->"Info3559464435-8381484"]
+}, Open  ]],
+
+Cell["\<\
+Note that all analog writing on the Arduino is done by a PWM signal with a \
+duty cycle of 100 (out of 255).  On the Uno and several other Arduinos, only \
+certain digital pins can output a PWM signal.  See the documentation for your \
+Arduino board.\
+\>", "Text",
+ CellChangeTimes->{{3.5575882013698673`*^9, 3.557588266759962*^9}, {
+  3.559482443887431*^9, 3.559482480494136*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ArduinoAnalogWrite", "[", 
+  RowBox[{"1", ",", "100"}], "]"}]], "Input",
+ CellChangeTimes->{{3.5574960272470913`*^9, 3.5574960532431087`*^9}, 
+   3.5575879839128313`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "ArduinoAnalogRead"}]], "Input",
+ CellChangeTimes->{{3.5594824909137983`*^9, 3.559482494471822*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"ArduinoAnalogRead[port] returns the analog reading of the \
+given port on the Arduino device connected from ArduinoConnect.\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.559482494870186*^9},
+ CellTags->"Info3559464494-8381484"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ArduinoAnalogRead", "[", "2", "]"}]], "Input",
+ CellChangeTimes->{{3.557496155133004*^9, 3.5574961621590242`*^9}}],
+
+Cell[BoxData["\<\"403\"\>"], "Output",
+ CellChangeTimes->{3.557496166727541*^9, 3.5575883545864897`*^9, 
+  3.557673878314062*^9}]
+}, Open  ]],
+
+Cell["\<\
+You can also update the value of an analog or digital port in real time.\
+\>", "Text",
+ CellChangeTimes->{{3.557496216328726*^9, 3.557496280281857*^9}, {
+  3.5575883592955236`*^9, 3.5575883802208548`*^9}, {3.5594825066000013`*^9, 
+  3.559482507454013*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", 
+  RowBox[{"ArduinoAnalogRead", "[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.557496168901175*^9, 3.557496174927528*^9}, {
+  3.557588289125483*^9, 3.557588307273285*^9}}],
+
+Cell[TextData[{
+ "Here is the Blink example, written in one line of ",
+ StyleBox["Mathematica ",
+  FontSlant->"Italic"],
+ "code",
+ StyleBox[".",
+  FontSlant->"Italic"]
+}], "Text",
+ CellChangeTimes->{{3.557496285066598*^9, 3.557496305066388*^9}, {
+  3.559493173473654*^9, 3.559493177284389*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Blink", "[", "led_", "]"}], ":=", 
+  RowBox[{"While", "[", 
+   RowBox[{"True", ",", 
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"ArduinoDigitalWrite", "[", 
+          RowBox[{"led", ",", "#"}], "]"}], ",", 
+         RowBox[{"Pause", "[", "1", "]"}]}], "}"}], "&"}], "/@", 
+      RowBox[{"{", 
+       RowBox[{"High", ",", "Low"}], "}"}]}], "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.559482513881349*^9, 3.5594825730066013`*^9}, {
+  3.559493156328486*^9, 3.5594931648002567`*^9}}],
+
+Cell[TextData[{
+ "A simple ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " GUI for controlling the digital ports on the Arduino Uno."
+}], "Text",
+ CellChangeTimes->{{3.557496418539415*^9, 3.557496440586441*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TableForm", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"#", ",", 
+       RowBox[{"Button", "[", 
+        RowBox[{"\"\<Low\>\"", ",", 
+         RowBox[{"ArduinoDigitalWrite", "[", 
+          RowBox[{"#", ",", "Low"}], "]"}]}], "]"}], ",", 
+       RowBox[{"Button", "[", 
+        RowBox[{"\"\<High\>\"", ",", 
+         RowBox[{"ArduinoDigitalWrite", "[", 
+          RowBox[{"#", ",", "High"}], "]"}]}], "]"}]}], "}"}], "&"}], "/@", 
+    RowBox[{"Range", "[", 
+     RowBox[{"1", ",", "13"}], "]"}]}], ",", 
+   RowBox[{"TableHeadings", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"None", ",", 
+      RowBox[{"{", 
+       RowBox[{"\"\<\>\"", ",", "\"\<Digital Ports\>\""}], "}"}]}], "}"}]}]}],
+   "]"}]], "Input",
+ CellChangeTimes->{{3.557494798716311*^9, 3.5574948601450872`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      TagBox["\<\"\"\>",
+       HoldForm], 
+      TagBox["\<\"Digital Ports\"\>",
+       HoldForm], 
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ]},
+     {"1", 
+      ButtonBox["\<\"Low\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[1, ArduinoLink`Low],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      ButtonBox["\<\"High\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[1, ArduinoLink`High],
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {"2", 
+      ButtonBox["\<\"Low\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[2, ArduinoLink`Low],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      ButtonBox["\<\"High\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[2, ArduinoLink`High],
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {"3", 
+      ButtonBox["\<\"Low\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[3, ArduinoLink`Low],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      ButtonBox["\<\"High\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[3, ArduinoLink`High],
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {"4", 
+      ButtonBox["\<\"Low\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[4, ArduinoLink`Low],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      ButtonBox["\<\"High\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[4, ArduinoLink`High],
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {"5", 
+      ButtonBox["\<\"Low\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[5, ArduinoLink`Low],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      ButtonBox["\<\"High\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[5, ArduinoLink`High],
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {"6", 
+      ButtonBox["\<\"Low\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[6, ArduinoLink`Low],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      ButtonBox["\<\"High\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[6, ArduinoLink`High],
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {"7", 
+      ButtonBox["\<\"Low\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[7, ArduinoLink`Low],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      ButtonBox["\<\"High\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[7, ArduinoLink`High],
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {"8", 
+      ButtonBox["\<\"Low\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[8, ArduinoLink`Low],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      ButtonBox["\<\"High\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[8, ArduinoLink`High],
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {"9", 
+      ButtonBox["\<\"Low\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[9, ArduinoLink`Low],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      ButtonBox["\<\"High\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[9, ArduinoLink`High],
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {"10", 
+      ButtonBox["\<\"Low\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[10, ArduinoLink`Low],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      ButtonBox["\<\"High\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[10, ArduinoLink`High],
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {"11", 
+      ButtonBox["\<\"Low\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[11, ArduinoLink`Low],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      ButtonBox["\<\"High\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[11, ArduinoLink`High],
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {"12", 
+      ButtonBox["\<\"Low\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[12, ArduinoLink`Low],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      ButtonBox["\<\"High\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[12, ArduinoLink`High],
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {"13", 
+      ButtonBox["\<\"Low\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[13, ArduinoLink`Low],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      ButtonBox["\<\"High\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>ArduinoLink`ArduinoDigitalWrite[13, ArduinoLink`High],
+       Evaluator->Automatic,
+       Method->"Preemptive"]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxDividers->{
+     "Columns" -> {{False}}, "ColumnsIndexed" -> {}, 
+      "Rows" -> {False, True, {False}, False}, "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   {None, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, TableHeadings -> {None, {"", "Digital Ports"}}]]]], "Output",
+ CellChangeTimes->{3.5574948611508093`*^9, 3.5574981931451397`*^9, 
+  3.557588428999593*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Connect Modules", "Subsection",
+ CellChangeTimes->{{3.5575884567890053`*^9, 3.557588460954213*^9}, {
+  3.5594825866018553`*^9, 3.559482591147985*^9}}],
+
+Cell[TextData[{
+ "ArduinoConnect modules can be dynamically loaded onto the Arduino when \
+ArduinoConnect is evaluated. Modules are a flexible and extensible way to \
+integrating sensors and libraries into the ArduinoConnect environment. \
+Loading a module usually involves loading SymbolicC constructs into ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " that can use libraries, either built-in or provided by a sensor \
+manufacturer. The ability to use and create modules will be elaborated in a \
+later notebook."
+}], "Text",
+ CellChangeTimes->{{3.557588462386331*^9, 3.557588524816684*^9}, {
+  3.5594804644671583`*^9, 3.559480465069598*^9}, {3.559482594375333*^9, 
+  3.559482734435598*^9}}],
+
+Cell["\<\
+Here\[CloseCurlyQuote]s running ArduinoConnect with add-on support for a DHT \
+Humidity and Temperature Sensor, a Ultrasonc HC-SRO4, and a MMA7361 \
+accelerometer: \
+\>", "Text",
+ CellChangeTimes->{{3.557588527808187*^9, 3.557588577090925*^9}, {
+  3.557672695010128*^9, 3.5576727249828987`*^9}, {3.557672762798081*^9, 
+  3.5576728103486433`*^9}, {3.55948047218828*^9, 3.5594804786641808`*^9}, {
+  3.559482738284216*^9, 3.5594827436360693`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"device", "=", 
+  RowBox[{"First", "[", 
+   RowBox[{"ArduinoList", "[", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5574948734739113`*^9, 3.5574948968220043`*^9}, 
+   3.561211626450036*^9}],
+
+Cell[BoxData[
+ RowBox[{"Arduino", "[", 
+  RowBox[{"\<\"/dev/tty.usbmodem411\"\>", ",", "\<\"atmega328p\"\>", ",", 
+   "115200", ",", "16", ",", "9600"}], "]"}]], "Output",
+ CellChangeTimes->{3.559604583501953*^9, 3.559604939963173*^9, 
+  3.559605624622266*^9, 3.5596059711758003`*^9, 3.559606592690593*^9, 
+  3.559606895813725*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"ArduinoConnect", "[", 
+  RowBox[{"device", ",", " ", 
+   RowBox[{"\"\<Include\>\"", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<UltrasonicHCSR04\>\"", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<TriggerPin\>\"", "\[Rule]", "6"}], ",", " ", 
+          RowBox[{"\"\<EchoPin\>\"", "\[Rule]", "7"}]}], "}"}]}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<AcceleroMMA7361\>\"", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<Voltage\>\"", "\[Rule]", "3.3"}], ",", 
+          RowBox[{"\"\<Sensitivity\>\"", "\[Rule]", "0"}], ",", 
+          RowBox[{"\"\<SleepPin\>\"", "\[Rule]", "13"}], ",", 
+          RowBox[{"\"\<SelfTestPin\>\"", "\[Rule]", "12"}], ",", 
+          RowBox[{"\"\<ZeroGPin\>\"", "\[Rule]", "11"}], ",", 
+          RowBox[{"\"\<GSelectPin\>\"", "\[Rule]", "10"}], ",", 
+          RowBox[{"\"\<xPin\>\"", "\[Rule]", "0"}], ",", 
+          RowBox[{"\"\<yPin\>\"", "\[Rule]", "1"}], ",", 
+          RowBox[{"\"\<zPin\>\"", "\[Rule]", "2"}]}], "}"}]}], "}"}]}], 
+     "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.557672737573923*^9, 3.55767275863319*^9}, {
+  3.5576730848893747`*^9, 3.557673085584385*^9}, {3.559480437001996*^9, 
+  3.559480458162318*^9}, {3.559482785450108*^9, 3.5594828067234163`*^9}, {
+  3.5596021315864162`*^9, 3.559602167102634*^9}, {3.5596032066999693`*^9, 
+  3.559603208793653*^9}, {3.559603349875119*^9, 3.559603350367284*^9}, {
+  3.559603388406184*^9, 3.559603396045669*^9}, {3.559605128253421*^9, 
+  3.55960513406074*^9}, {3.5596054733714333`*^9, 3.559605505344775*^9}, {
+  3.559606385876224*^9, 3.559606417529716*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Sensor: Accelerometer", "Subsection"]], \
+"Subsubsection",
+ CellChangeTimes->{{3.557672866045539*^9, 3.557672875538774*^9}, 
+   3.559482750867241*^9}],
+
+Cell["\<\
+Connect the accelerometer as follows:
+
+sleepPin = 13, selfTestPin = 12, zeroGPin = 11, gSelectPin = 10, xPin = A0, \
+yPin = A1, zPin = A2, 5V to 5V.  Also conect the AREF pin on the Arduino to \
+3.3V.\
+\>", "Text",
+ CellChangeTimes->{{3.557672884996769*^9, 3.557672947944724*^9}}],
+
+Cell[TextData[{
+ "Initialize and calibrate the sensor:  The calibration call actually takes a \
+bit of time to run on the Arduino, so does not block ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " evaulation."
+}], "Text",
+ CellChangeTimes->{{3.55767295199235*^9, 3.55767295950412*^9}, {
+  3.5576739872364883`*^9, 3.5576740185218077`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ArduinoRun", "[", "\"\<AcceleroInitialize\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.557602114840261*^9, 3.55760211783669*^9}, {
+  3.559481989730348*^9, 3.559481995812758*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ArduinoRun", "[", "\"\<AcceleroCalibrate\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.557602140759796*^9, 3.5576021451398573`*^9}, {
+  3.557602345928441*^9, 3.557602346502303*^9}, {3.5594819973734617`*^9, 
+  3.559482001282374*^9}}],
+
+Cell["Read raw X,Y,Z values:", "Text",
+ CellChangeTimes->{{3.557672967506118*^9, 3.557672978879735*^9}}],
+
+Cell["\<\
+The first call to this may be slower because the calibration may not be \
+finished yet.\
+\>", "Text",
+ CellChangeTimes->{{3.557674021289649*^9, 3.557674067888468*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"ArduinoRun", "[", "\"\<AcceleroGetRawX\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ArduinoRun", "[", "\"\<AcceleroGetRawY\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Dynamic", "[", 
+  RowBox[{
+   RowBox[{"ArduinoRun", "[", "\"\<AcceleroGetRawZ\>\"", "]"}], ",", 
+   RowBox[{"UpdateInterval", "\[Rule]", "0.1"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.557671896312983*^9, 3.557671910705126*^9}, {
+  3.557672984187914*^9, 3.557672990163533*^9}, {3.557772994712894*^9, 
+  3.5577730079262733`*^9}, {3.5594820043059893`*^9, 3.559482015549152*^9}, {
+  3.5612245121107883`*^9, 3.5612245273162527`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", 
+  RowBox[{
+   RowBox[{"ArduinoRun", "[", "\"\<AcceleroGetRawZ\>\"", "]"}], ",", 
+   RowBox[{"UpdateInterval", "\[Rule]", "0.1"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.557671896312983*^9, 3.557671910705126*^9}, {
+  3.557672984187914*^9, 3.557672990163533*^9}, {3.557772994712894*^9, 
+  3.5577730079262733`*^9}, {3.557773126468795*^9, 3.557773134069778*^9}, {
+  3.5594820203634567`*^9, 3.5594820235426826`*^9}, {3.561224530273724*^9, 
+  3.561224532851918*^9}}],
+
+Cell["Read X, Y, Z voltages:", "Text",
+ CellChangeTimes->{{3.5576729937738037`*^9, 3.5576730074466476`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"ArduinoRun", "[", "\"\<AcceleroGetXVolt\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ArduinoRun", "[", "\"\<AcceleroGetYVolt\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ArduinoRun", "[", "\"\<AcceleroGetZVolt\>\"", "]"}]}], "Input",
+ CellChangeTimes->{
+  3.5576716891790257`*^9, {3.557673021484087*^9, 3.557673033970119*^9}, {
+   3.5594820312072687`*^9, 3.559482042045903*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Add-on Sensor: DHT ", "Subsubsection",
+ CellChangeTimes->{{3.557672826988551*^9, 3.5576728402701*^9}}],
+
+Cell["Initialize the sensor:", "Text",
+ CellChangeTimes->{{3.557588554273814*^9, 3.557588585086709*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ArduinoRun", "[", "\"\<DHTInitialize\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.557539042145191*^9, 3.557539080452424*^9}, {
+   3.559480426942692*^9, 3.559480428166349*^9}, 3.559482051497882*^9}],
+
+Cell["Read temperature from the sensor in Celsius:", "Text",
+ CellChangeTimes->{{3.557588592846334*^9, 3.557588627749501*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ArduinoRun", "[", "\"\<DHTReadTemperature\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.559482048240399*^9, 3.559482054928309*^9}}],
+
+Cell[BoxData["\<\"23\"\>"], "Output",
+ CellChangeTimes->{
+  3.557588602650209*^9, 3.557623162561784*^9, {3.5576242010313377`*^9, 
+   3.557624202883924*^9}, 3.5576249245638437`*^9, 3.557674197261629*^9, {
+   3.5576743576913*^9, 3.557674377820225*^9}}]
+}, Open  ]],
+
+Cell["Read the humidity level measured by the sensor:", "Text",
+ CellChangeTimes->{{3.557588614424034*^9, 3.55758862527735*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ArduinoRun", "[", "\"\<DHTReadHumidity\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.557539115067402*^9, 3.5575391184111547`*^9}, {
+  3.559482059341321*^9, 3.559482061109386*^9}}],
+
+Cell[BoxData["\<\"44\"\>"], "Output",
+ CellChangeTimes->{3.5575391190989656`*^9, 3.5575395144293413`*^9, 
+  3.55758556507742*^9, 3.5575856136143513`*^9, 3.557587112072003*^9, 
+  3.5575886302785063`*^9, 3.557623165088875*^9, 3.557624204526383*^9, 
+  3.55767436071784*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Add-on Sensor: Ultrasonic", "Subsubsection",
+ CellChangeTimes->{{3.557624929990088*^9, 3.5576249342038193`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ArduinoRun", "[", "\"\<UltrasonicRange\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.5576251290362597`*^9, 3.5576251292251263`*^9}, {
+  3.5576731168866158`*^9, 3.557673118222274*^9}, {3.559482062671414*^9, 
+  3.5594820774837933`*^9}}],
+
+Cell[BoxData["\<\"32\"\>"], "Output",
+ CellChangeTimes->{{3.557625132472562*^9, 3.55762515524196*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1280, 752},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 30, \
+2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3559464405-8381484"->{
+  Cell[9738, 282, 277, 5, 43, "Print",
+   CellTags->"Info3559464405-8381484"]},
+ "Info3559464419-8381484"->{
+  Cell[10553, 307, 274, 5, 43, "Print",
+   CellTags->"Info3559464419-8381484"]},
+ "Info3559464435-8381484"->{
+  Cell[11111, 325, 281, 5, 43, "Print",
+   CellTags->"Info3559464435-8381484"]},
+ "Info3559464494-8381484"->{
+  Cell[12151, 354, 272, 5, 43, "Print",
+   CellTags->"Info3559464494-8381484"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3559464405-8381484", 31174, 877},
+ {"Info3559464419-8381484", 31283, 880},
+ {"Info3559464435-8381484", 31393, 883},
+ {"Info3559464494-8381484", 31503, 886}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 96, 1, 28, "Input"],
+Cell[CellGroupData[{
+Cell[678, 25, 98, 1, 92, "Title"],
+Cell[779, 28, 248, 7, 29, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[1052, 39, 116, 1, 44, "Subsection"],
+Cell[1171, 42, 1015, 22, 138, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2223, 69, 160, 2, 44, "Subsection"],
+Cell[2386, 73, 295, 7, 31, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2718, 85, 104, 1, 44, "Subsection"],
+Cell[2825, 88, 143, 2, 28, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3005, 95, 186, 2, 44, "Subsection"],
+Cell[3194, 99, 263, 6, 31, "Text"],
+Cell[CellGroupData[{
+Cell[3482, 109, 151, 3, 28, "Input"],
+Cell[3636, 114, 387, 8, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4060, 127, 216, 5, 28, "Input"],
+Cell[4279, 134, 811, 12, 28, "Output"]
+}, Open  ]],
+Cell[5105, 149, 279, 5, 30, "Text"],
+Cell[CellGroupData[{
+Cell[5409, 158, 343, 7, 28, "Input"],
+Cell[5755, 167, 256, 4, 28, "Output"]
+}, Open  ]],
+Cell[6026, 174, 263, 6, 31, "Text"],
+Cell[CellGroupData[{
+Cell[6314, 184, 136, 2, 28, "Input"],
+Cell[6453, 188, 740, 13, 46, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7242, 207, 164, 2, 44, "Subsection"],
+Cell[7409, 211, 577, 14, 50, "Text"],
+Cell[7989, 227, 140, 2, 28, "Input"],
+Cell[8132, 231, 402, 9, 49, "Text"],
+Cell[8537, 242, 167, 3, 30, "Text"],
+Cell[8707, 247, 477, 12, 28, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9221, 264, 99, 1, 44, "Subsection"],
+Cell[9323, 267, 259, 7, 30, "Text"],
+Cell[CellGroupData[{
+Cell[9607, 278, 128, 2, 28, "Input"],
+Cell[9738, 282, 277, 5, 43, "Print",
+ CellTags->"Info3559464405-8381484"]
+}, Open  ]],
+Cell[10030, 290, 197, 4, 28, "Input"],
+Cell[10230, 296, 166, 3, 28, "Input"],
+Cell[CellGroupData[{
+Cell[10421, 303, 129, 2, 28, "Input"],
+Cell[10553, 307, 274, 5, 43, "Print",
+ CellTags->"Info3559464419-8381484"]
+}, Open  ]],
+Cell[10842, 315, 115, 2, 28, "Input"],
+Cell[CellGroupData[{
+Cell[10982, 321, 126, 2, 28, "Input"],
+Cell[11111, 325, 281, 5, 43, "Print",
+ CellTags->"Info3559464435-8381484"]
+}, Open  ]],
+Cell[11407, 333, 391, 7, 49, "Text"],
+Cell[11801, 342, 194, 4, 28, "Input"],
+Cell[CellGroupData[{
+Cell[12020, 350, 128, 2, 28, "Input"],
+Cell[12151, 354, 272, 5, 43, "Print",
+ CellTags->"Info3559464494-8381484"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12460, 364, 138, 2, 28, "Input"],
+Cell[12601, 368, 129, 2, 28, "Output"]
+}, Open  ]],
+Cell[12745, 373, 266, 5, 30, "Text"],
+Cell[13014, 380, 219, 4, 28, "Input"],
+Cell[13236, 386, 294, 9, 30, "Text"],
+Cell[13533, 397, 587, 16, 28, "Input"],
+Cell[14123, 415, 218, 6, 30, "Text"],
+Cell[CellGroupData[{
+Cell[14366, 425, 831, 23, 46, "Input"],
+Cell[15200, 450, 6424, 174, 447, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21673, 630, 156, 2, 44, "Subsection"],
+Cell[21832, 634, 701, 13, 68, "Text"],
+Cell[22536, 649, 454, 8, 30, "Text"],
+Cell[CellGroupData[{
+Cell[23015, 661, 216, 5, 28, "Input"],
+Cell[23234, 668, 331, 6, 28, "Output"]
+}, Open  ]],
+Cell[23580, 677, 1708, 34, 63, "Input"],
+Cell[CellGroupData[{
+Cell[25313, 715, 174, 3, 36, "Subsubsection"],
+Cell[25490, 720, 290, 7, 68, "Text"],
+Cell[25783, 729, 345, 8, 30, "Text"],
+Cell[26131, 739, 202, 3, 28, "Input"],
+Cell[26336, 744, 255, 4, 28, "Input"],
+Cell[26594, 750, 104, 1, 30, "Text"],
+Cell[26701, 753, 177, 4, 30, "Text"],
+Cell[26881, 759, 635, 12, 63, "Input"],
+Cell[27519, 773, 502, 9, 28, "Input"],
+Cell[28024, 784, 108, 1, 30, "Text"],
+Cell[28135, 787, 413, 8, 63, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28585, 800, 108, 1, 35, "Subsubsection"],
+Cell[28696, 803, 104, 1, 30, "Text"],
+Cell[28803, 806, 221, 3, 28, "Input"],
+Cell[29027, 811, 126, 1, 30, "Text"],
+Cell[CellGroupData[{
+Cell[29178, 816, 154, 2, 28, "Input"],
+Cell[29335, 820, 250, 4, 28, "Output"]
+}, Open  ]],
+Cell[29600, 827, 128, 1, 30, "Text"],
+Cell[CellGroupData[{
+Cell[29753, 832, 202, 3, 28, "Input"],
+Cell[29958, 837, 270, 4, 28, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30277, 847, 118, 1, 35, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[30420, 852, 257, 4, 28, "Input"],
+Cell[30680, 858, 102, 1, 28, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
