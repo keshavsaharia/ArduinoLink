@@ -70,17 +70,8 @@ ArduinoLink::support = "ArduinoLink does not support `1`";
 ArduinoLink::notfound = "No Arduino device was found at `1`."
 ArduinoLink::noserial = "No serial connection can be established to the specified device. This happens if there is no serial device connected to the specified port, or when another \
 						program has already claimed the serial port.";
-ArduinoLink::dependency = 
-"ArduinoLink dependencies: \n \
- - version 0022 of the Arduino IDE, installed in the Applications folder (http://arduino.cc/en/Main/Software) \n \
- - FTDI USB Serial Driver - ships with the Arduino IDE (http://arduino.cc/en/Main/Software) \n \
- Wolfram Research Inc. is not affiliated with any of these third-party software providers.";
 ArduinoLink::init = "An Arduino microcontroller must be connected in order to proceed with initialization.";
 ArduinoLink::noinit = "ArduinoLink failed to initialize.";
-
-
-(* Taken out of ArduinoLink::dependency message
-  - CrossPack version 20100115 for AVR Development (http://www.obdev.at/products/crosspack/download.html) \n \ *)
 
 Begin["`Private`"]
 
@@ -116,16 +107,13 @@ ArduinoLinkConfigure[opts:OptionsPattern[]]:= (
 		_, None
 	];
 	$AVRCrossCompilerDirectory = OptionValue@"AVRCrossCompilerPath";
-	If[ ValidateArduinoLinkEnvironment[],
-		InitializeArduinoLink[]];
 )
 
 (* Dependency tests. Ensures that the Arduino IDE is installed in the user's Applications directory,
    and checks for CrossPack availability.	*)
-ValidateArduinoLinkEnvironment[]:= (
-	If[ Not[ FileExistsQ[$ArduinoIDEDirectory]] || Not[ FileExistsQ[$AVRCrossCompilerDirectory]], 
-		Message[ArduinoLink::dependency]; False, True];
-)
+ValidateArduinoLinkEnvironment[] := 
+	If[FileExistsQ[$ArduinoIDEDirectory], True,
+		Message[ArduinoLink::dependency]; False]
 
 (* Configure and validate environment on package load *)
 ArduinoLinkConfigure[];
@@ -538,8 +526,8 @@ Module [ {curdir, fname, success, arduino = ArduinoList[], sketch = ArduinoGener
 		timeout = 0;
 		(* Execute the build and upload it to the device, repeating if Arduino IDE has uncompiled errors *)
 		While[success != 0 && timeout < 100,
-			success = Run[FileNameJoin[{ $AVRCrossCompilerDirectory, "make" }]];
-			success = Run[FileNameJoin[{ $AVRCrossCompilerDirectory, "make upload" }]];
+			success = Run[FileNameJoin[{ $MyPackageDirectory, "CrossCompiler", "make" }]];
+			success = Run[FileNameJoin[{ $MyPackageDirectory, "CrossCompiler", "make upload" }]];
 			timeout++;
 		];
 		If[timeout == 100, Message[ArduinoLink::noinit]];
@@ -549,12 +537,6 @@ Module [ {curdir, fname, success, arduino = ArduinoList[], sketch = ArduinoGener
 		SetDirectory[curdir];
 	];
 ]
-
-(* Unimplemented, ideally will fetch all prerequisites from git repository. *)
-InstallArduinoLink[] :=
-	If[StringMatchQ[Import["!git --version", "TEXT"], "git version" ~~ __],
-		0
-	]
  
 FromRealDigits[n_] := 
 	With[{strnum = StringSplit[n, "."]}, 
